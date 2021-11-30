@@ -1,2 +1,2 @@
-# itechart-rails-course
-Lab Project (Ruby, RR)
+# Lab Project (Ruby, RR)
+## Личный менеджер финансов
