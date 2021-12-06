@@ -1,2 +1,3 @@
-# Lab Project (Ruby, RR)
-## Личный менеджер финансов
+# Wallet Mate
+
+Ruby on Rails Project by Alexander Sharapov
