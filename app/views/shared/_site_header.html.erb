@@ -16,6 +16,11 @@
   <% unless user_signed_in?%>
     <%= link_to "Sign in", new_user_session_path, class: "button flat-button" %>
   <% else %>
-    <%= link_to "Sign out", destroy_user_session_path, class: "button flat-button" %>
+    <div class="user-profile-header font-slab">
+      Hello, <%= current_user.email.to_s.split("@")[0].capitalize %>!
+      <%= link_to "Cabinet", cabinet_path, class: "button flat-button ruby-button" %>
+      <%= link_to "Edit profile", edit_user_registration_path, class: "button flat-button ruby-button" %>
+      <%= link_to "Sign out", destroy_user_session_path, method: :delete, class: "button flat-button" %>
+    </div>
   <% end %>
 </header>

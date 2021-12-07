@@ -7,7 +7,7 @@ header {
   backdrop-filter: blur(10px);
   height: 50px;
   box-shadow: 0 3px 12px #00000010;
-  text-align: center;
+  text-align: left;
   z-index: 10;
   white-space: nowrap;
   font-size: 18px;
@@ -16,8 +16,7 @@ header {
 header nav[data-role="site-nav-menu"] {
   text-align: center;
   display: inline-block;
-  padding: 0 100px;
-  margin-right: -90px;
+  padding: 0 10px;
 }
 
 header nav[data-role="site-nav-menu"] > span,
@@ -48,6 +47,9 @@ a.nav-link:hover {
 
 .nav-active {
   font-weight: bold;
+  background: var(--ruby);
+  color: #fff;
+  text-shadow: 0 1px 0 #00000050;
 }
 
 header a.flat-button {
@@ -66,8 +68,13 @@ header .home-link:before {
   filter: grayscale(1);
   transition: all .2s linear;
 }
+
 header a.home-link:hover:before {
   filter: none;
+}
+
+header .nav-active.home-link:before {
+  filter: grayscale(1) invert(1) brightness(1.5);
 }
 
 article.single {
@@ -96,6 +103,7 @@ section#splash > * {
 section#splash img {
   clear: both;
   margin: 50px 0;
+  filter: drop-shadow(0 7px 15px #fff);
 }
 
 section#splash h1 {
@@ -194,26 +202,31 @@ section.static-page-content h5 {
 
 section#simply_about {
   height: 370px;
-  overflow: hidden;
+  overflow-y: hidden;
   margin: 0 auto;
-  padding: 120px 0;
+  padding: 120px 50px;
   width: 100%;
-  max-width: 1000px;
+  max-width: 1100px;
+}
+
+section#simply_about h2 {
+  margin-bottom: 30px;
 }
 
 section#simply_about .phone-wrapper {
   position: relative;
   top: -50px;
+  filter: drop-shadow(0 2px 10px var(--ruby-dark-shadow))
 }
 
 a.flat-button {
-  margin: 0 20px;
-  font-size: 16px;
+  margin: 0 10px;
+  font-size: 14px;
   border: none;
   background: #555;
   color: #fff;
   text-shadow: 0 1px 0 #000;
-  line-height: 30px;
+  line-height: 32px;
   height: 30px;
   box-shadow: 0 1px 5px #00000020;
   border-radius: 5px;
@@ -229,12 +242,13 @@ a.flat-button:active {
 }
 
 section#splash a.flat-button {
-  font-size: 20px;
+  font-size: 22px;
   color: #333;
   text-shadow: 0 1px 0 #fff;
   padding: 0 30px !important;
   height: auto;
   line-height: 60px;
+  text-transform: capitalize;
   background: linear-gradient(to top, #eee, #fff);
 }
 
@@ -264,10 +278,13 @@ section#splash > span.splash-filter {
 section#compatibility {
   width: 100%;
   background: #777;
+  background: linear-gradient(to top, #555, #777);
   color: #eee;
-  text-shadow: 0 1px 0 #00000050;
+  text-shadow: 0 1px 0 #00000070;
   text-align: center;
   padding: 50px 20px;
+  box-shadow: 0 2px 15px #00000040;
+  z-index: 5;
 }
 
 ul.compatibility-list li {
@@ -301,7 +318,7 @@ ul.compatibility-list li img[src*="windows"] {
 footer {
   display: block;
   box-sizing: border-box;
-  padding: 20px;
+  padding: 30px 20px;
   font-size: 10px;
   width: 100%;
   background: #333;
@@ -433,7 +450,7 @@ blockquote {
 blockquote:after {
   content: "\1F5EA";
   position: absolute;
-  top: 50%;
+  top: calc(50% - 15px);
   left: -10px;
   display: block;
   color: var(--ruby);
@@ -452,7 +469,7 @@ blockquote:before {
   border: 2px solid var(--ruby);
   position: absolute;
   margin: -6px -16px;
-  top: 50%;
+  top: calc(50% - 15px);
   left: -5px;
   width: 40px;
   height: 40px;
@@ -469,4 +486,42 @@ section.static-page-content blockquote:first-of-type::after {
 section.static-page-content blockquote[data-role="introtext"], 
 section.static-page-content blockquote:first-of-type {
   color: #999
+}
+
+header .user-profile-header {
+  float: right;
+  line-height: 50px;
+  margin: 0 10px;
+  font-size: 14px;
+}
+
+.user-profile-header a.flat-button {
+  float: none;
+  margin: 0 0 0 5px;
+}
+
+.user-profile-header a.flat-button:first-of-type {
+  margin-left: 20px;
+}
+
+.user-profile-header a.flat-button:last-of-child {
+  margin-right: 10px;
+}
+
+.user-profile-header a.flat-button.ruby-button {
+  line-height: 28px;
+  background: #fefefe;
+  background: linear-gradient(to top, #fefefe, #fff);
+  color: #333;
+  text-shadow: 0 1px 0 #fff;
+  border: 2px solid var(--ruby)
+}
+
+.user-profile-header a.flat-button.ruby-button:hover {
+  border: 2px solid var(--ruby-light);
+}
+
+img.footer-logo {
+  filter: grayscale(1) invert(1) brightness(7.7) drop-shadow(0 1px 3px #000);
+  opacity: .7;
 }
