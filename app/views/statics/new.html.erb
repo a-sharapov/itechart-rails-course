@@ -1,5 +1,12 @@
-<h1>New Static</h1>
+<%provide(:current_page_title, "New static page - ")%>
 
-<%= render 'form', static: @static %>
+<div id="app-manager">
+  <h4>New Page:</h4>
+  <%= link_to 'Back', statics_path, class: "manager-button" %>
+</div>
 
-<%= link_to 'Back', statics_path %>
+<article class="single">
+  <%= link_to "Close", statics_path, class: "emulate-close" %>  
+  <h1 align="center">Create new static page</h1>
+  <%= render 'form', static: @static %>
+</article>

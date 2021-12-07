@@ -1,0 +1,149 @@
+#app-manager {
+	position: fixed;
+	box-sizing: border-box;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	width: 100%;
+	text-align: left;
+	line-height: 20px;
+	padding: 0 15px;
+	color: #eee;
+	font-size: 16px;
+	background: #777;
+	text-shadow: 0 1px 0 #00000070;
+	box-shadow: 0 -5px 15px #00000020;
+	line-height: 60px;
+	height: 60px;
+	max-height: 7px;
+	opacity: 0.7;
+	overflow: hidden;
+	transition: all 1s linear;
+	border: 1px solid #000;
+	z-index: 100;
+}
+#app-manager:hover {
+	max-height: 100%;
+	opacity: 1;
+	overflow: visible;
+	backdrop-filter: blur(5px);
+}
+#app-manager > * {
+	display: inline-block;
+	vertical-align: middle;
+}
+#app-manager h4 {
+	margin: 0 20px 0 0;
+}
+#app-manager a {
+	color: #fff;
+}
+#app-manager a.manager-button {
+	display: inline-block;
+	margin: 0 5px;
+	padding: 0 10px;
+	background: #000;
+	text-decoration: none;
+	line-height: 30px;
+	boreder-radius: 5px;
+	border-radius: 2px;
+	box-shadow: 0 1px 15px #00000050;
+}
+.page-list-wrapper {
+	position: absolute;
+	background: #777;
+	bottom: 0;
+	right: 0;
+	left: 300px;
+	display: block;
+	margin: 0 -1px 0 20px;
+	padding: 0;
+	border: 1px solid #000;
+	border-bottom: none;
+	max-height: 58px;
+	overflow: hidden;
+	transition: all 1s linear;
+}
+.page-list-wrapper:hover {
+	max-height: fit-content;
+}
+.page-list-wrapper > .page-list-item {
+	padding: 5px 20px;
+	line-height: 20px;
+}
+.page-list-wrapper > .page-list-item:nth-child(even) {
+	background: #555;
+}
+.page-header {
+	font-weight: bold;
+	font-size: 20px;
+}
+.page-header i {
+	font-weight: normal;
+	font-size: 11px;
+}
+.page-header i:before {
+	content: "[ID: ";
+}
+.page-header i:after {
+	content: "]";
+}
+.page-intro {
+	display: block;
+	font-size: 11px;
+	white-space: nowrap;
+	width: 60%;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+.page-actions {
+	float: right;
+	line-height: 48px;
+}
+form.page-edit-form {
+	display: block;
+	width: 100%;
+	max-width: 1000px;
+	text-align: left;
+	margin: 0 auto;
+}
+form.page-edit-form div[data-role="field"] {
+	display: block;
+	width: 100%;
+	clear: both;
+	margin: 0 0 10px;
+}
+form.page-edit-form div[data-role="field"] label {
+	font-weight: bold;
+}
+form.page-edit-form div[data-role="actions"] {
+	padding: 10px 0;
+	text-align: center;
+}
+textarea.introtext-field, 
+textarea.expanded-by-editor {
+	min-height: 150px;
+}
+
+a.emulate-close {
+	position: fixed;
+	display: block;
+	box-sizing: border-box;
+	top: 20px;
+	right: 20px;
+	height: 50px;
+	width: 50px;
+	font-size: 0;
+	background: #fff url(/i/close.svg) no-repeat center center;
+	backdrop-filter: blur(10px);
+	background-size: 40%;
+	border: 1px solid #fff;
+	border-radius: 25px;
+	box-shadow: 0 5px 15px #00000010;
+	opacity: .55;
+}
+
+a.emulate-close:hover {
+	opacity: 1;
+	box-shadow: 0 5px 15px #00000020;
+}

@@ -2,10 +2,11 @@
 <html>
   <head>
     <title><%= yield(:current_page_title) %>Wallet Mate</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="<%= yield(:meta_description)%>"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <%= yield(:inner_includes)%>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     
@@ -21,11 +22,11 @@
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180x180.png" />
   </head>
 
-  <body>
+  <body data-page="<%= controller_name %> <%= action_name %>">
     <main id="app">
-      <span class="notice"><%= notice %></span>
-      <span class="alert"><%= alert %></span>
       <%= yield %>
     </main>
+    <span class="notice"><%= notice %></span>
+    <span class="alert"><%= alert %></span>
   </body>
 </html>

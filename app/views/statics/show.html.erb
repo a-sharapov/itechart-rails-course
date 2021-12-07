@@ -1,20 +1,20 @@
 <%provide(:current_page_title, "#{@static.title} - ")%>
-<p id="notice"><%= notice %></p>
+<%provide(:meta_description, @static.introtext)%>
 
-<p>
-  <strong>Title:</strong>
-  <%= @static.title %>
-</p>
+<div id="app-manager">
+  <h4><%= @static.title %>:</h4>
+  <%= link_to 'Edit', edit_static_path(@static), class: "manager-button" %>
+  <%= link_to 'Back', statics_path, class: "manager-button" %>
+</div>
 
-<p>
-  <strong>Content:</strong>
-  <%= @static.content %>
-</p>
-
-<p>
-  <strong>Introtext:</strong>
-  <%= @static.introtext %>
-</p>
-
-<%= link_to 'Edit', edit_static_path(@static) %> |
-<%= link_to 'Back', statics_path %>
+<%= render :partial => "shared/site_header" %>
+<article>
+  <section class="static-page-content">
+    <h1><%= @static.title %></h1>
+    <blockquote data-role="introtext">
+      <%= @static.introtext %>
+    </blockquote>
+    <%= @static.content.html_safe %>
+  </section>
+</article>
+<%= render :partial => "shared/site_footer" %>

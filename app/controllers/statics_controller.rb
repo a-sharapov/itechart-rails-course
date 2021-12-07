@@ -3,11 +3,13 @@ class StaticsController < ApplicationController
 
   # GET /statics or /statics.json
   def index
+    @static = Static.new
     @statics = Static.all
   end
 
   # GET /statics/1 or /statics/1.json
   def show
+    @statics = Static.all
   end
 
   # GET /statics/new

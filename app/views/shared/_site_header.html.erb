@@ -1,0 +1,21 @@
+<header>
+  <nav data-role="site-nav-menu">
+    <% if @static.id? %>
+      <%= link_to "Home", statics_path, class: "nav-link home-link" %>
+    <% else %>
+      <span class="nav-active home-link">Home</span>
+    <% end %>
+    <% @statics.each do |static| %>
+      <% if @static.id == static.id %>
+        <span class="nav-active"><%= static.title %></span>
+      <% else %>
+        <%= link_to static.title, static, class: "nav-link" %>
+      <% end %>
+    <% end %>
+  </nav>
+  <% unless user_signed_in?%>
+    <%= link_to "Sign in", new_user_session_path, class: "button flat-button" %>
+  <% else %>
+    <%= link_to "Sign out", destroy_user_session_path, class: "button flat-button" %>
+  <% end %>
+</header>

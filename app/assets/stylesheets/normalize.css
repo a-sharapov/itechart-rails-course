@@ -157,6 +157,7 @@ legend {
 }
 textarea {
     overflow: auto;
+    display: block;
 }
 [type=number]::-webkit-inner-spin-button,
 [type=number]::-webkit-outer-spin-button {

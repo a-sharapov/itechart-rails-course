@@ -1,8 +1,7 @@
-<%= form_with(model: static) do |form| %>
+<%= form_with(model: static, class: "page-edit-form") do |form| %>
   <% if static.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(static.errors.count, "error") %> prohibited this static from being saved:</h2>
-
       <ul>
         <% static.errors.each do |error| %>
           <li><%= error.full_message %></li>
@@ -11,22 +10,16 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div data-role="field">
     <%= form.label :title %>
-    <%= form.text_field :title %>
-  </div>
-
-  <div class="field">
-    <%= form.label :content %>
-    <%= form.text_area :content %>
-  </div>
-
-  <div class="field">
+    <%= form.text_field :title %></div>
+  <div data-role="field">
     <%= form.label :introtext %>
-    <%= form.text_area :introtext %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+    <%= form.text_area :introtext, class: "introtext-field" %></div>
+  <div data-role="field">
+    <%= form.label :content %>
+    <%= form.text_area :content, class: "expanded-by-editor" %></div>
+  <div data-role="actions">
+    <%= form.submit %></div>
 <% end %>
+<%provide(:inner_includes, '<link href="https://cdn.jsdelivr.net/npm/froala-editor@latest/css/froala_editor.pkgd.min.css" rel="stylesheet" type="text/css" />'.to_s.html_safe)%>

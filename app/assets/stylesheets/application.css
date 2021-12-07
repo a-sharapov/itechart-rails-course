@@ -1,3 +1,7 @@
-@import url(normalize.css);
-@import url(fonts.css);
-@import url(base.css);
+@import "normalize.css";
+@import "fonts.css";
+@import "base.css";
+@import "manager.css";
+@import "statics.css";
+@import "users.css";
+@import url("https://cdn.quilljs.com/1.3.6/quill.snow.css");

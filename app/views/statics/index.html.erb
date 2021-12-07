@@ -1,33 +1,63 @@
-<p id="notice"><%= notice %></p>
+<%provide(:active_page, "active")%>
 
-<h1>Statics</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Content</th>
-      <th>Introtext</th>
-      <th>Slug</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
+<div id="app-manager">
+  <h4>Pages:</h4>
+  <%= link_to 'Create new page', new_static_path, class: "manager-button" %>
+  <div class="page-list-wrapper">
     <% @statics.each do |static| %>
-      <tr>
-        <td><%= static.title %></td>
-        <td><%= static.content %></td>
-        <td><%= static.introtext %></td>
-        <td><%= static.slug %></td>
-        <td><%= link_to 'Show', static %></td>
-        <td><%= link_to 'Edit', edit_static_path(static) %></td>
-        <td><%= link_to 'Destroy', static, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+      <div class="page-list-item">
+        <span class="page-actions">
+          <%= link_to 'Go to page', static, class: "manager-button" %>
+          <%= link_to 'Edit page', edit_static_path(static), class: "manager-button" %>
+          <%= link_to 'Remove page', static, method: :delete, data: { confirm: 'Are you absolutely sure?' }, class: "manager-button" %>
+        </span>
+        <span class="page-header font-slab"><%= static.title %> <i><%= static.id %></i></span>
+        <br />
+        <span class="page-intro"><%= static.introtext %></span>
+      </div>
     <% end %>
-  </tbody>
-</table>
+  </div>
+</div>
 
-<br>
-
-<%= link_to 'New Static', new_static_path %>
+<%= render :partial => "shared/site_header" %>
+<article>
+  <section id="splash">
+    <img src="/images/logo.svg" width="300px" alt="Wallet Mate" />
+    <h1>Wallet Mate</h1>
+    <h3>All things money ways</h3>
+    <p>Open a free account in minutes right from your <strong>e-mail</strong>, and understand yours money ways</p>
+    <p class="action-wrapper">
+      <%= link_to "Sign up for a free", new_user_registration_url, class: "button flat-button highlighted font-slab" %>&nbsp;
+    </p>
+    <span class="splash-filter"></span>
+  </section>
+  <section id="simply_about">
+    <div class="phone-wrapper" data-floated="left">
+      <span class="phone-content">
+        <img src="/images/in-phone.png" alt="" width="100%" height="auto" />
+      </span>
+    </div>
+    <h2>How can I install this App?</h2>
+    <p>We deliver out our product as <strong>Progressive Web App</strong>.</p>
+    <p>Installing a PWA adds it to a user's launcher, allowing it to be run like any other installed app.</p>
+    <ol>
+      <li>Click on an install button in the address bar.</li>
+      <li>Click <strong>Install</strong>.</li>
+    </ol>
+  </section>
+  <section id="compatibility">
+    <h3>Wallet Mate is fully compatible with widespread Operating Systems:</h3>
+    <ul class="compatibility-list">
+      <li>
+        <img src="/i/apple.svg" alt="Apple" width="60px" /><br />
+        Apple iOS/OSX</li>
+      <li>
+        <img src="/i/android.svg" alt="Android" width="60px" /><br />
+        Google Android</li>
+      <li>
+        <img src="/i/windows.svg" alt="Windows" width="40px" /><br />
+        Microsoft Windows</li>
+    </ul>
+  </section>
+</article>
+<%= render :partial => "shared/site_footer" %>

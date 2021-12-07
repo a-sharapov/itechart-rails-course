@@ -1,6 +1,12 @@
-<h1>Editing Static</h1>
+<%provide(:current_page_title, "Editing #{@static.title} - ")%>
+<div id="app-manager">
+  <h4><%= @static.title %>:</h4>
+  <%= link_to 'Show', @static, class: "manager-button" %>
+  <%= link_to 'Back', statics_path, class: "manager-button" %>
+</div>
 
-<%= render 'form', static: @static %>
-
-<%= link_to 'Show', @static %> |
-<%= link_to 'Back', statics_path %>
+<article class="single">
+  <%= link_to "Close", statics_path, class: "emulate-close" %>
+  <h1 align="center">Editing &laquo;<%= @static.title %>&raquo; page</h1>
+  <%= render 'form', static: @static %>
+</article>

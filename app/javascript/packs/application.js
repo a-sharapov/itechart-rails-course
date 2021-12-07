@@ -7,7 +7,13 @@ import Rails from "@rails/ujs"
 import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
+import FroalaEditor from "froala-editor"
+import 'froala-editor/js/plugins.pkgd.min.js';
 
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
+
+document.addEventListener("turbolinks:load", function() {
+  const editor = new FroalaEditor('.expanded-by-editor', {})
+})
