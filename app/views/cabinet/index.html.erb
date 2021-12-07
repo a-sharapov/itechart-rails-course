@@ -1,7 +1,7 @@
 <header>
   <span class="wallet-profile font-slab">
-    <img src="/images/sign.svg" alt="<%= current_user.email.to_s.split("@")[0].capitalize %>`s wallet mate" width="50px" />
-    <%= current_user.email.to_s.split("@")[0].capitalize %>`s wallet mate
+    <img src="/images/sign.svg" alt="<%= current_user.user_nickname %>`s wallet mate" width="50px" />
+    <%= current_user.user_nickname %>`s wallet mate
   </span>
   
   <span class="user-profile-header font-slab">
@@ -15,5 +15,5 @@
 <footer>
 
 </footer>
-<%provide(:current_page_title, "#{current_user.email.to_s.split("@")[0].capitalize}`s cabinet - ")%>
+<%provide(:current_page_title, "#{current_user.user_nickname}`s cabinet - ")%>
 <%provide(:inner_includes, "")%>

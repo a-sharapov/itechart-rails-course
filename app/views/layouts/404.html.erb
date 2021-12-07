@@ -1,0 +1,35 @@
+<article id="p404" class="font-slab">
+  <h1>404</h1>
+  <hr />
+  <p>The requested URL was not found on this server</p>
+</article>
+<%provide(:inner_includes, '
+<style type="text/css">
+  article#p404 {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-size: 40px 40px;
+    background-image: radial-gradient(circle, #aaa 1px, #eee 1px);
+    box-sizing: border-box;
+    padding: 20% 20% 0;
+    font-size: 20px;
+  }
+  article#p404 h1 {
+    font-size: 70px;
+    line-height: 80px;
+    color: var(--ruby);
+  }
+  article#p404 h1 + hr {
+    height: 5px;
+    border: none;
+    width: 40px;
+    background: var(--ruby);
+  }
+  article#p404 p {
+    color: #777;
+  }
+</style>'
+.to_s.html_safe) %>

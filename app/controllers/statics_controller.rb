@@ -1,6 +1,6 @@
 class StaticsController < ApplicationController
-  before_action :set_static, only: %i[ show edit update destroy ]
-  http_basic_authenticate_with name: "root", password: "toor", except: [:index, :show]
+  before_action :set_static, only: %i[show edit update destroy]
+  http_basic_authenticate_with name: 'root', password: 'toor', except: %i[index show]
 
   # GET /statics or /statics.json
   def index
@@ -19,8 +19,7 @@ class StaticsController < ApplicationController
   end
 
   # GET /statics/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /statics or /statics.json
   def create
@@ -28,7 +27,7 @@ class StaticsController < ApplicationController
 
     respond_to do |format|
       if @static.save
-        format.html { redirect_to @static, notice: "Static was successfully created." }
+        format.html { redirect_to @static, notice: 'Static was successfully created.' }
         format.json { render :show, status: :created, location: @static }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -41,7 +40,7 @@ class StaticsController < ApplicationController
   def update
     respond_to do |format|
       if @static.update(static_params)
-        format.html { redirect_to @static, notice: "Static was successfully updated." }
+        format.html { redirect_to @static, notice: 'Static was successfully updated.' }
         format.json { render :show, status: :ok, location: @static }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -54,19 +53,20 @@ class StaticsController < ApplicationController
   def destroy
     @static.destroy
     respond_to do |format|
-      format.html { redirect_to statics_url, notice: "Static was successfully destroyed." }
+      format.html { redirect_to statics_url, notice: 'Static was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_static
-      @static = Static.friendly.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def static_params
-      params.require(:static).permit(:title, :content, :introtext, :slug)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_static
+    @static = Static.friendly.find(params[:id]) rescue not_found
+  end
+
+  # Only allow a list of trusted parameters through.
+  def static_params
+    params.require(:static).permit(:title, :content, :introtext, :slug)
+  end
 end

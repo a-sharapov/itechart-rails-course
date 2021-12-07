@@ -1,1 +1,1 @@
-json.array! @statics, partial: "statics/static", as: :static
+json.array! @statics, partial: 'statics/static', as: :static

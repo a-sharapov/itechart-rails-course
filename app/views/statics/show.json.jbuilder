@@ -1,1 +1,1 @@
-json.partial! "statics/static", static: @static
+json.partial! 'statics/static', static: @static
