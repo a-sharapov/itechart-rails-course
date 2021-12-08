@@ -1,3 +1,4 @@
+<%provide(:current_page_title, "#{@person.name} - ")%>
 <%= render :partial => "shared/cabinet_header" %>
 <p>
   <b>Name:</b>
@@ -14,10 +15,6 @@
   <%= @person.description %>
 </p>
 
-<p>
-  <b>User:</b>
-  <%= @person.user %>
-</p>
 <%= link_to 'Edit', edit_person_path(@person) %> |
 <%= link_to 'Back', people_path %>
 

@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  has_many :people
+  has_many :people,:dependent => :destroy
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -13,9 +13,10 @@ class User < ApplicationRecord
   end
 
   after_create :create_assigned_person
-  
+
+  private
   def create_assigned_person
     person = people.build(user_id: id, name: "Me")
-    person.save
+    update_without_password(current_person: person.id) if person.save
   end
 end

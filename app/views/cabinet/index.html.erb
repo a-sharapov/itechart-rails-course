@@ -1,12 +1,5 @@
 <%= render :partial => "shared/cabinet_header" %>
 <article class="cabinet-main">
-  <form method="PATCH" action="<%#= edit_cabinet_person_path %>">
-    <select name="current-person-switch" id="current-person-switch">
-      <% @people.each do |person| %>
-        <option value="<%= person.id %>" <%= 'selected="selected"' if (2 == person.id) %>><%= person.name %></option>
-      <% end %>
-    </select>
-  </form>
   
 </article>
 <%= render :partial => "shared/cabinet_footer" %>

@@ -11,3 +11,23 @@
 .wallet-profile > img {
   float: left;
 }
+
+.current-person-switcher-form {
+  display: inline-block;
+  vertical-align: top;
+  position: relative;
+  width: auto;
+  max-width: 200px;
+  line-height: 50px;
+  margin: 0 10px;
+  border-left: 1px dotted #ccc;
+  border-right: 1px dotted #ccc;
+}
+
+.current-person-switcher-form select {
+  border: none;
+  height: 50px;
+  box-shadow: none;
+  padding: 0 40px 0 20px !important;
+  background-position: calc(100% - 10px) center;
+}

@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   devise_for :users
   get 'cabinet' => 'cabinet#index', :as => :user_root
   get 'users' => redirect('cabinet')
+  patch 'cabinet' => 'cabinet#change_person'
 
   resources :people, path: '/cabinet/persons'
   resources :statics, path: '/'

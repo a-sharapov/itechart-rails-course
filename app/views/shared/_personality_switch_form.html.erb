@@ -1,0 +1,8 @@
+<%= form_tag(cabinet_path, method: :patch, class: "current-person-switcher-form") do -%>
+  <select name="current_person" id="current-person" onChange="this.form.submit()">
+      <% @people.each do |person| %>
+      <%= "<option value=#{person.id} #{selected(current_user.current_person, person.id)}>#{person.name}</option>".to_s.html_safe %>
+      <% end %>
+      <option disabled="disabled">You can add more</option>
+  </select>
+<% end -%>
