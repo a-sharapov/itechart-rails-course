@@ -1,0 +1,11 @@
+<header>
+  <span class="wallet-profile font-slab">
+    <img src="/images/sign.svg" alt="<%= current_user.user_nickname %>`s wallet mate" width="50px" />
+    <%= current_user.user_nickname %>`s wallet mate
+  </span>
+  
+  <span class="user-profile-header font-slab">
+    <%= link_to "Edit profile", edit_user_registration_path, class: "button flat-button ruby-button" %>
+    <%= link_to "Sign out", destroy_user_session_path, method: :delete, class: "button flat-button" %>
+  </span>
+</header>
