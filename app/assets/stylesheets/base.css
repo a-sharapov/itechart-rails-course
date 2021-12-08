@@ -457,3 +457,17 @@ span.notice:empty {
       opacity: 0;
   }
 }
+
+.fr-second-toolbar {
+  display: none !important;
+  visibility: hidden !important;
+}
+
+.fr-toolbar.fr-top, 
+.fr-box.fr-basic {
+  border-radius: 2px !important;
+}
+
+.fr-box.fr-basic .fr-wrapper {
+  border-bottom: 1px solid #aaa !important;
+}

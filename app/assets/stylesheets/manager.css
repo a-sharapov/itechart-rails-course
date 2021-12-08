@@ -121,7 +121,8 @@ form.page-edit-form div[data-role="actions"] {
 	text-align: center;
 }
 textarea.introtext-field, 
-textarea.expanded-by-editor {
+textarea.expanded-by-editor, 
+textarea.expanded-by-editor-mini {
 	min-height: 150px;
 }
 

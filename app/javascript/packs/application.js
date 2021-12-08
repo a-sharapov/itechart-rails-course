@@ -15,5 +15,11 @@ Turbolinks.start()
 ActiveStorage.start()
 
 document.addEventListener("turbolinks:load", function() {
-  const editor = new FroalaEditor('.expanded-by-editor', {})
+  new FroalaEditor('.expanded-by-editor', {
+    quickInsertEnabled: false
+  })
+  new FroalaEditor('.expanded-by-editor-mini', {
+    toolbarButtons: ['bold', 'italic', 'underline', 'undo', 'redo'],
+    quickInsertEnabled: false
+  })
 })

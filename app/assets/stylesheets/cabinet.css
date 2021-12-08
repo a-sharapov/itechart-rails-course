@@ -6,6 +6,7 @@
   font-weight: bold;
   font-size: 20px;
   line-height: 50px;
+  margin-left: 10px;
 }
 
 .wallet-profile > img {
@@ -20,8 +21,8 @@
   max-width: 200px;
   line-height: 50px;
   margin: 0 10px;
-  border-left: 1px dotted #ccc;
-  border-right: 1px dotted #ccc;
+  border-left: 1px dotted #ddd;
+  border-right: 1px dotted #ddd;
 }
 
 .current-person-switcher-form select {
@@ -30,4 +31,133 @@
   box-shadow: none;
   padding: 0 40px 0 20px !important;
   background-position: calc(100% - 10px) center;
+}
+
+section#personalities-section {
+  display: block;
+  width: 100%;
+  max-width: 1000px;
+  margin: 50px auto;
+}
+
+.on-mount {
+  display: block;
+  box-sizing: border-box;
+  margin: 20px 0;
+  padding: 15px 20px;
+  border: 1px dotted #ccc;
+  border-radius: 5px;
+  font-size: 18px;
+  color: #555;
+}
+
+.personalities-list {
+  display: block;
+  clear: both;
+  width: 100%;
+  text-align: center;
+  margin: 30px 0;
+}
+
+.personalities-list .personality-item {
+  position: relative;
+  display: block;
+  box-sizing: border-box;
+  padding: 10px 20px;
+  margin: 0 0 15px;
+  color: #333;
+  width: 100%;
+  text-align: left;
+  background: linear-gradient(to top, #f7f7f7, #fafafa);
+  border-radius: 2px;
+  border-bottom: 3px solid #ccc;
+  box-shadow: 0 2px 7px #00000025;
+}
+
+.personalities-list .personality-item:nth-child(even) {
+}
+
+.personalities-list .personality-item:last-of-type {
+  margin-bottom: 30px;
+}
+
+.personalities-list .personality-item .name {
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 30px;
+  letter-spacing: 1px;
+}
+
+.personalities-list .personality-item .relation {
+  font-size: 12px;
+  color: #777;
+}
+
+.personalities-list .personality-item .relation:before {
+  content: "(";
+}
+
+.personalities-list .personality-item .relation:after {
+  content: ")";
+}
+
+.personalities-list .personality-item .description {
+  margin: 10px 0 0;
+  font-size: 18px;
+  letter-spacing: .5px;
+}
+
+.personalities-list .personality-item .controls {
+  float: right;
+  margin: 4px -5px 0 0;
+}
+
+.personalities-list .personality-item .description:empty, 
+.personalities-list .personality-item .relation:empty {
+  display: none;
+  visibility: hidden;
+  margin: 0;
+}
+
+a.mini-button {
+  display: inline-block;
+  vertical-align: top;
+  box-sizing: border-box;
+  font-size: 0;
+  width: 22px;
+  height: 22px;
+  margin: 0;
+  border-radius: 2px;
+  filter: drop-shadow(0px 1px #fff) grayscale(1);
+  opacity: .5;
+}
+
+a.mini-button:last-of-type {
+  margin: 0;
+}
+
+a.mini-button:hover {
+  filter: grayscale(0);
+  opacity: 1;
+}
+
+a.mini-button.icon-show {
+  background-image: url(/i/show.svg);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 100%;
+}
+
+a.mini-button.icon-edit {
+  background-image: url(/i/edit.svg);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 80%;
+}
+
+a.mini-button.icon-delete {
+  background-image: url(/i/delete.svg);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 80%;
 }

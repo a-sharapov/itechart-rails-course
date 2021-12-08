@@ -19,4 +19,8 @@ class User < ApplicationRecord
     person = people.build(user_id: id, name: "Me")
     update_without_password(current_person: person.id) if person.save
   end
+
+  def normalize_friendly_id(string)
+    string.to_slug.transliterate(:russian).normalize.to_s
+  end
 end

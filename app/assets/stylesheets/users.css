@@ -15,7 +15,7 @@ section.page-form-wrapper {
   position: relative;
   display: block;
   box-sizing: border-box;
-  padding: 40px 30px;
+  padding: 40px 30px 20px;
   width: 100%;
   max-width: 400px;
   margin: 0 auto;
@@ -34,7 +34,7 @@ section.page-form-wrapper.wide .row {
   display: inline-block;
   box-sizing: border-box;
   width: 50%;
-  padding: 40px 30px;
+  padding: 40px 30px 20px;
 }
 section.page-form-wrapper.wide .row:first-of-type {
   position: relative;

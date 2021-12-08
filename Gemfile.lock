@@ -65,6 +65,7 @@ GEM
       tzinfo (~> 2.0)
       zeitwerk (~> 2.3)
     ast (2.4.2)
+    babosa (2.0.0)
     bcrypt (3.1.16)
     bindex (0.8.1)
     bootsnap (1.9.3)
@@ -222,6 +223,7 @@ PLATFORMS
   x64-mingw32
 
 DEPENDENCIES
+  babosa
   bootsnap (>= 1.4.4)
   byebug
   devise (~> 4.8)
@@ -244,4 +246,4 @@ RUBY VERSION
    ruby 2.7.5p203
 
 BUNDLED WITH
-   2.1.4
+   2.2.32

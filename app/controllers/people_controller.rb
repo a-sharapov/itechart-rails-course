@@ -8,9 +8,6 @@ class PeopleController < ApplicationController
     @people = @user.people
   end
 
-  def show
-  end
-
   def new
     @person = @user.people.build
   end
@@ -22,7 +19,7 @@ class PeopleController < ApplicationController
     @person = @user.people.build(person_params)
 
     if @person.save
-      redirect_to user_root_path, notice: "Person was successfully created."
+      redirect_to people_path, notice: "Person was successfully created."
     else
       render action: 'new'
     end
@@ -30,18 +27,18 @@ class PeopleController < ApplicationController
 
   def update
     if @person.update(person_params)
-      redirect_to user_root_path, notice: "Person was successfully updated."
+      redirect_to people_path, notice: "Person was successfully updated."
     else
       render action: 'edit'
     end
   end
 
   def destroy
-    if current_user.people.count > 1
+    if current_user.people.count > 1 && current_user.current_person != @person.id
       @person.destroy
-      redirect_to user_root_path, notice: "Person was successfully removed."
+      redirect_to people_path, notice: "Person was successfully removed."
     else
-      redirect_to user_root_path, alert: "You can't destroy yours last alter ego"
+      redirect_to people_path, alert: "You can't destroy yours last or active alter ego"
     end
   end
 

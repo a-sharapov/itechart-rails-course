@@ -19,9 +19,10 @@
   </div>
   <div class="field">
     <%= f.label :description %><br />
-    <%= f.text_area :description %>
+    <%= f.text_area :description, class: "expanded-by-editor-mini" %>
   </div>
   <div class="actions">
     <%= f.submit %>
   </div>
 <% end %>
+<%provide(:inner_includes, '<link href="https://cdn.jsdelivr.net/npm/froala-editor@latest/css/froala_editor.pkgd.min.css" rel="stylesheet" type="text/css" />'.to_s.html_safe)%>

@@ -3,9 +3,7 @@
     <img src="/images/sign.svg" alt="<%= current_user.user_nickname %>`s wallet mate" width="50px" />
     <%= current_user.user_nickname %>`s wallet mate
   </span>
-  <% if current_page?(user_root_path) %>
-    <%= render :partial => "shared/personality_switch_form" %>
-  <% end %>
+  <%= render :partial => "shared/personality_switch_form" %>
   <span class="user-profile-header font-slab">
     <% unless current_page?(user_root_path) %>
       <%= link_to "Cabinet", user_root_path, class: "button flat-button ruby-button" %>
