@@ -1,0 +1,24 @@
+<%= render :partial => "shared/cabinet_header" %>
+<p>
+  <b>Name:</b>
+  <%= @person.name %>
+</p>
+
+<p>
+  <b>Relation:</b>
+  <%= @person.relation %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @person.description %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%= @person.user %>
+</p>
+<%= link_to 'Edit', edit_person_path(@person) %> |
+<%= link_to 'Back', people_path %>
+
+<%= render :partial => "shared/cabinet_footer" %>

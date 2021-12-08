@@ -5,6 +5,12 @@
   </span>
   
   <span class="user-profile-header font-slab">
+    <% unless current_page?(user_root_path) %>
+      <%= link_to "Cabinet", user_root_path, class: "button flat-button ruby-button" %>
+    <% end %>
+    <% unless current_page?(people_path) %>
+      <%= link_to "Personality management", people_path, class: "button flat-button ruby-button" %>
+    <% end %>
     <%= link_to "Edit profile", edit_user_registration_path, class: "button flat-button ruby-button" %>
     <%= link_to "Sign out", destroy_user_session_path, method: :delete, class: "button flat-button" %>
   </span>
