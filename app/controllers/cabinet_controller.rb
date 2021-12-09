@@ -11,13 +11,14 @@ class CabinetController < ApplicationController
   def change_person
     @user = current_user
     if @user.update_without_password(user_params)
-      redirect_to user_root_path, notice: "Active person was successfully changed."
+      redirect_to user_root_path, notice: 'Active person was successfully changed.'
     else
-      redirect_to user_root_path, alert: "Looks like something goes wrong"
+      redirect_to user_root_path, alert: 'Looks like something goes wrong'
     end
   end
 
   private
+
   def user_params
     params.permit(:current_person)
   end

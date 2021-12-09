@@ -8,8 +8,8 @@ class ApplicationController < ActionController::Base
   end
 
   def not_found
-    raise ActionController::RoutingError.new('Not Found')
-  rescue
+    raise ActionController::RoutingError, 'Not Found'
+  rescue StandardError
     render_404
   end
 
@@ -18,8 +18,8 @@ class ApplicationController < ActionController::Base
   end
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:account_update) { 
-      |u| u.permit(:name, :email, :password, :current_password)
-    }
+    devise_parameter_sanitizer.permit(:account_update) do |u|
+      u.permit(:name, :email, :password, :current_password)
+    end
   end
 end

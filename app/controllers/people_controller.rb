@@ -2,24 +2,23 @@ class PeopleController < ApplicationController
   protect_from_forgery with: :exception
   before_action :authenticate_user!
   before_action :set_user
-  before_action :set_person, only: [:show, :edit, :update, :destroy]
+  before_action :set_person, only: %i[show edit update destroy]
 
   def index
-    @people = @user.people
+    @people = @user.people.order(created_at: :desc).page(params[:page]).per(5)
   end
 
   def new
     @person = @user.people.build
   end
 
-  def edit
-  end
+  def edit; end
 
   def create
     @person = @user.people.build(person_params)
 
     if @person.save
-      redirect_to people_path, notice: "Person was successfully created."
+      redirect_to people_path(anchor: "person-#{@person.id}"), notice: 'Person was successfully created.'
     else
       render action: 'new'
     end
@@ -27,7 +26,7 @@ class PeopleController < ApplicationController
 
   def update
     if @person.update(person_params)
-      redirect_to people_path, notice: "Person was successfully updated."
+      redirect_to people_path(anchor: "person-#{@person.id}"), notice: 'Person was successfully updated.'
     else
       render action: 'edit'
     end
@@ -36,23 +35,24 @@ class PeopleController < ApplicationController
   def destroy
     if current_user.people.count > 1 && current_user.current_person != @person.id
       @person.destroy
-      redirect_to people_path, notice: "Person was successfully removed."
+      redirect_to people_path, notice: 'Person was successfully removed.'
     else
       redirect_to people_path, alert: "You can't destroy yours last or active alter ego"
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_user
-      @user = current_user
-    end
 
-    def set_person
-      @person = current_user.people.friendly.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_user
+    @user = current_user
+  end
 
-    def person_params
-      params.require(:person).permit(:name, :relation, :description, :user_id)
-    end
+  def set_person
+    @person = current_user.people.friendly.find(params[:id])
+  end
+
+  def person_params
+    params.require(:person).permit(:name, :relation, :description, :user_id)
+  end
 end

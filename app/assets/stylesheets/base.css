@@ -458,6 +458,56 @@ span.notice:empty {
   }
 }
 
+nav[role="navigation"] {
+  display: block;
+  text-align: center;
+  margin: 20px 0;
+  padding: 0;
+}
+
+nav[role="navigation"].empty {
+  display: none;
+  visibility: hidden;
+}
+
+nav[role="navigation"] a {
+  display: inline-block;
+  padding: 0 5px;
+  color: #333;
+  text-decoration: none;
+  border-bottom: 1px dotted var(--ruby);
+}
+
+nav[role="navigation"] a:hover {
+  border-bottom-style: solid;
+}
+
+nav[role="navigation"] .next,
+nav[role="navigation"] .prev,
+nav[role="navigation"] .page {
+  box-sizing: border-box;
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 14px;
+  text-decoration: none;
+  padding: 0;
+  margin: 0 2px;
+  line-height: 20px;
+}
+
+nav[role="navigation"] .current {
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  border-radius: 3px;
+  font-weight: bold;
+  font-size: 15px;
+  background: var(--ruby);
+  color: #fff;
+  text-shadow: 0 1px 0 var(--ruby-dark);
+} 
+
+
 .fr-second-toolbar {
   display: none !important;
   visibility: hidden !important;

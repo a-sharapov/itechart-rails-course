@@ -1,4 +1,9 @@
 @charset "utf-8";
+body[data-page="cabinet index"], 
+body[data-page="people index"] {
+  background: #eee;
+}
+
 .wallet-profile {
   display: inline-block;
   font-weight: bold;
@@ -11,6 +16,7 @@
 
 .wallet-profile > img {
   float: left;
+  margin-right: 5px;
 }
 
 .current-person-switcher-form {
@@ -27,6 +33,7 @@
 
 .current-person-switcher-form select {
   border: none;
+  background-color: transparent;
   height: 50px;
   box-shadow: none;
   padding: 0 40px 0 20px !important;
