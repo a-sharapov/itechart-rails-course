@@ -1,7 +1,11 @@
 <%= render :partial => "shared/cabinet_header" %>
 <article class="cabinet-main">
-  
+  <%= render :partial => "categories/cabinet_out" %>
+  <section id="transactions">
+    <h1>Transactions</h1>
+    <div class="data-wrapper"></div>
+  </section>
 </article>
 <%= render :partial => "shared/cabinet_footer" %>
-<%provide(:current_page_title, "#{current_user.user_nickname}`s cabinet - ")%>
+<%provide(:current_page_title, "#{current_user.user_nickname}`s (#{current_user.current_person_name}) cabinet - ")%>
 <%provide(:inner_includes, "")%>

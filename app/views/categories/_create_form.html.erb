@@ -1,0 +1,41 @@
+<%= form_with(model: @categories, url: person_categories_path, class: "category-edit-form") do |f| %>
+  <% if @category.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@category.errors.count, "error") %> prohibited this category from being saved:</h2>
+      <ul>
+      <% @category.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="field">
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :direction %><br />
+    <%= f.select(:direction, {"Income": true, "Spending": false}, { include_blank: false }) %>
+  </div>
+  <div class="field">
+    <%= f.label :color %><br />
+    <%= f.text_field :color, type: "color", value: generate_random_color %>
+  </div>
+  <div class="field">
+    <label>Assigned to persons:</label><br />
+    <%= f.collection_check_boxes(:person_ids, @people, :id, :name, {multiple: true}) do |person_checkbox| 
+      person_checkbox.label("data-modifier": "checkbox-label") {
+        person_checkbox.check_box(checked: current_user.current_person.to_s.eql?(person_checkbox.value.to_s)) +
+        person_checkbox.text
+      }
+     end %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_area :description, class: "expanded-by-editor-mini" %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+<%provide(:inner_includes, '<link href="https://cdn.jsdelivr.net/npm/froala-editor@latest/css/froala_editor.pkgd.min.css" rel="stylesheet" type="text/css" />'.to_s.html_safe)%>

@@ -1,0 +1,21 @@
+<%= render :partial => "shared/cabinet_header" %>
+<article class="cabinet-main">
+  <section class="category-view" style="--current-color: <%= @category.color %>" data-direction=<%= direction_transcriptor(@category.direction).downcase %>>
+    <span class="controls">
+      <%= link_to 'Edit', edit_person_categories_path({"person_id": current_user.current_person_friendly, "category_id": @category}), class: "mini-button icon-edit", title: "Edit" %>&nbsp;
+      <%= link_to 'Delete', person_categories_path({"person_id": current_user.current_person_friendly, "category_id": @category}), method: :delete, data: { confirm: 'Are you sure?' }, class: "mini-button icon-delete", title: "Delete" %>
+    </span>
+    <%= "<h1>#{@category.title}</h1>".html_safe %>
+    <p class="category-direction"><%= direction_transcriptor(@category.direction) %></>
+    <p class="category-description"><%= sanitize @category.description %></p>
+    <p class="category-balance">N/A</p>
+    <p class="category-created">Created <%= @category.created_at.strftime('%e.%m.%y in %H:%M') %></p>
+  </section>
+  <section class="category-transactions">
+    <h3>Transactions</h3>
+    <div class="data-wrapper"></div>
+  </section>
+</article>
+<%= render :partial => "shared/cabinet_footer" %>
+<%provide(:current_page_title, "#{@category.title} - ")%>
+<%provide(:inner_includes, "")%>

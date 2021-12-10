@@ -1,0 +1,11 @@
+<div class="category-item" style="--current-color: <%= category.color %>" data-direction="<%= direction_transcriptor(category.direction).downcase %>" id="category-<%= category.id %>">
+  <span class="controls">
+    <%= link_to 'Edit', edit_person_categories_path({"person_id": current_user.current_person_friendly, "category_id": category}), class: "mini-button icon-edit", title: "Edit" %>&nbsp;
+    <%= link_to 'Delete', person_categories_path({"person_id": current_user.current_person_friendly, "category_id": category}), method: :delete, data: { confirm: 'Are you sure?' }, class: "mini-button icon-delete", title: "Delete" %>
+  </span>
+  <div class="category-title font-slab" %><%= category.title %></div>
+  <div class="category-description"><%= sanitize category.description %></div>
+  <div class="category-balance">N/A</div>
+  <div class="category-created">Created <%= category.created_at.strftime('%e.%m.%y in %H:%M') %></div>
+  <%= link_to '&#11179;'.html_safe, person_categories_path({"person_id": current_user.current_person_friendly, "category_id": category}), class: "more-link font-slab" %>
+</div>

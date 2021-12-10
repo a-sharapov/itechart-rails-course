@@ -1,11 +1,13 @@
 <%provide(:current_page_title, "#{@static.title} - ")%>
 <%provide(:meta_description, @static.introtext)%>
 
+<% if current_user.present? && current_user.is_admin? %>
 <div id="app-manager">
   <h4><%= @static.title %>:</h4>
   <%= link_to 'Edit', edit_static_path(@static), class: "manager-button" %>
   <%= link_to 'Back', statics_path, class: "manager-button" %>
 </div>
+<% end %>
 
 <%= render :partial => "shared/site_header" %>
 <article>

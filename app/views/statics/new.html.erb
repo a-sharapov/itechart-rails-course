@@ -1,5 +1,5 @@
+<% if current_user.present? && current_user.is_admin? %>
 <%provide(:current_page_title, "New static page - ")%>
-
 <div id="app-manager">
   <h4>New Page:</h4>
   <%= link_to 'Back', statics_path, class: "manager-button" %>
@@ -10,3 +10,4 @@
   <h1 align="center">Create new static page</h1>
   <%= render 'form', static: @static %>
 </article>
+<% end %>

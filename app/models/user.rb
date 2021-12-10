@@ -23,5 +23,6 @@ class User < ApplicationRecord
   def create_assigned_person
     person = people.build(user_id: id, name: 'Me')
     update_without_password(current_person: person.id) if person.save
+    update_without_password(default_person: person.id) if person.save
   end
 end

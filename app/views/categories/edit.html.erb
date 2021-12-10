@@ -1,0 +1,9 @@
+<%provide(:current_page_title, "Editing category - ")%>
+<section class="page-form-wrapper">
+  <%= link_to "Close", user_root_path, class: "emulate-close" %>
+  <h1>Editing category</h1>
+  <%= render 'edit_form' %>
+  <div class="form-links-wrapper">
+    <%= link_to 'Back', user_root_path, class: "link-to-back" %>
+  </div>
+</section>

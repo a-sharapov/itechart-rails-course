@@ -1,7 +1,7 @@
 @charset "utf-8";
 body[data-page="cabinet index"], 
 body[data-page="people index"] {
-  background: #eee;
+  
 }
 
 .wallet-profile {
@@ -167,4 +167,33 @@ a.mini-button.icon-delete {
   background-repeat: no-repeat;
   background-position: center center;
   background-size: 80%;
+}
+
+article.cabinet-main {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 1000px;
+  margin: 50px auto 0;
+}
+
+article.cabinet-main > section {
+  position: relative;
+  margin: 0 0 50px;
+  text-align: center;
+}
+
+article.cabinet-main > section .data-wrapper {
+  text-align: left;
+}
+
+article.cabinet-main > section .data-wrapper:empty {
+  text-align: center;
+  margin: 50px 0;
+}
+
+article.cabinet-main > section .data-wrapper:empty:before {
+  content: "Has no data to provide";
+  font-size: 14px;
+  color: #aaa;
 }
