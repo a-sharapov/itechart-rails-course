@@ -1,7 +1,6 @@
 class Person < ApplicationRecord
   has_many :person_category, dependent: :destroy
   has_many :category, through: :person_category 
-
   validates :name, presence: true, length: { minimum: 2 }
   belongs_to :user
 

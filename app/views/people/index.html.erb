@@ -5,9 +5,9 @@
   <p class="on-mount">In this section, you can manage your personalities: create, edit and delete.</p>
   <p>Personalities are created for systematization and better control of the financial flow. Personalities are not individual users and do not require authorization.</p>
   <div class="personalities-list">
-  <%= render @people %>
-  <%= paginate @people %>
-  <%= link_to 'Create new personality', new_person_path(params[:user_id]), class: "button bordered-button" %>
+    <%= link_to 'Add new personality', new_person_path(params[:user_id]), class: "personality-creator font-slab" %> 
+    <%= render @people %>
+    <%= paginate @people %>
   </div>
 </section>
 <%= render :partial => "shared/cabinet_footer" %>

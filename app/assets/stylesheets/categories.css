@@ -22,7 +22,7 @@ a.category-creator {
   font-size: 20px;
   text-align: center;
   width: calc(25% - 10px);
-  min-width: 150px;
+  min-width: 200px;
   margin: 5px;
   height: 220px;
   border: 2px dashed #777;
@@ -49,20 +49,27 @@ a.category-creator:hover {
   border-top: 3px solid var(--current-color);
   border-bottom: 3px solid var(--current-color);
   width: calc(25% - 10px);
-  min-width: 150px;
+  min-width: 200px;
   margin: 5px;
   height: 220px;
   box-shadow: 0 5px 15px #00000020;
+  transition: all .2s linear;
+  text-align: left;
 }
 
-.category-view .controls {
-  position: absolute;
-  right: 0;
-  top: 0;
+.category-item:hover {
+  transform: scale(102%);
+  box-shadow: 0 5px 20px #00000035;
 }
 
 .category-item .controls {
   float: right;
+  opacity: 0;
+  transition: all .2s linear;
+}
+
+.category-item:hover .controls {
+  opacity: 1;
 }
 
 .category-item .category-title {
@@ -141,6 +148,17 @@ a.category-creator:hover {
   text-shadow: 0 1px 0 #00000020;
 }
 
+article.cabinet-main > section.category-view {
+  position: relative;
+  float: left;
+  padding: 20px 50px;
+  margin: 0 50px 20px 0;
+  background: none;
+  border: 1px dotted #eee;
+  border-radius: 10px;
+  z-index: 3;
+}
+
 .category-view h1 {
   font-size: 40px;
   color: var(--current-color);
@@ -192,4 +210,20 @@ a.category-creator:hover {
 
 .category-view[data-direction="spending"] .category-balance:before {
   content: "-";
+}
+
+.category-view .controls {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  width: 30px;
+  text-align: center;
+  font-size: 0;
+  line-height: 26px;
+  opacity: 0;
+  transition: all .2s linear;
+}
+
+.category-view:hover .controls {
+  opacity: 1;
 }

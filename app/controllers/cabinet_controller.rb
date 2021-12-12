@@ -8,18 +8,10 @@ class CabinetController < ApplicationController
     @user = current_user
     @people = @user.people.all
     if @user.default_person.equal? @user.current_person
-      @categories = Category.
-                    includes(:persons, :person_categories).
-                    references(:person_categories).
-                    where('user_id = ?', @user.id).
-                    order(created_at: :desc).
+      @categories = Category.all_by_current_user(@user.id).
                     page(params[:page]).per(7)
     else
-      @categories = Category.
-                    includes(:persons, :person_categories).
-                    references(:person_categories).
-                    where('person_id = ?', @person_id).
-                    order(created_at: :desc).
+      @categories = Category.all_by_person(@person_id).
                     page(params[:page]).per(7)
     end
   end

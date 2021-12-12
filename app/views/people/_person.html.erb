@@ -1,7 +1,9 @@
 <div class="personality-item" id="person-<%= person.id %>">
   <span class="controls">
     <%= link_to 'Edit', edit_person_path(person), class: "mini-button icon-edit", title: "Edit" %>&nbsp;
-    <%= link_to 'Delete', person_path(person), method: :delete, data: { confirm: 'Are you sure?' }, class: "mini-button icon-delete", title: "Delete" %>
+    <% unless current_user.default_person.equal? person.id %>
+      <%= link_to 'Delete', person_path(person), method: :delete, data: { confirm: 'Are you sure?' }, class: "mini-button icon-delete", title: "Delete" %>
+    <% end %>
   </span>
   <span class="name font-slab"><%= person.name %></span>&nbsp;<span class="relation"><%= person.relation %></span>
   <div class="description"><%= sanitize person.description %></div>
