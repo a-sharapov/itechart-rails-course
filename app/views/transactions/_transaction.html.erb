@@ -1,0 +1,11 @@
+<div class="transaction-item" style="--current-color: <%= Category.find(transaction.category_id).color %>" data-important="<%= transaction.is_important.to_s %>" data-direction="<%= direction_transcriptor(transaction.direction).downcase %>" id="transaction-<%= transaction.id %>">
+  <span class="controls">
+    <%= link_to 'Edit', edit_transactions_path(id: transaction.id), class: "mini-button icon-edit", title: "Edit" %>&nbsp;
+    <%= link_to 'Delete', transactions_path(id: transaction.id), method: :delete, data: { confirm: 'Are you sure?' }, class: "mini-button icon-delete", title: "Delete" %>
+  </span>
+  <span class="transaction-amount font-slab"><%= format("%.2f", transaction.amount) %></span>
+  <span class="transaction-title font-slab"><%= transaction.title %></span>
+  <span class="transaction-category"><%= Category.find(transaction.category_id).title %></span>
+  <div class="transaction-description"><%= sanitize transaction.description %></div>
+  <span class="transaction-created"><%= transaction.created_at.strftime('%e.%m.%y %H:%M') %></span>
+</div>

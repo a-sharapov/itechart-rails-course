@@ -7,13 +7,38 @@ class CabinetController < ApplicationController
   def index
     @user = current_user
     @people = @user.people.all
+    (@fStartDate, @fEndDate) = [Date.today - 1.month, Date.today]
+
     if @user.default_person.equal? @user.current_person
       @categories = Category.all_by_current_user(@user.id).
-                    page(params[:page]).per(7)
+                    page(params[:category_page]).per(7)
     else
       @categories = Category.all_by_person(@person_id).
-                    page(params[:page]).per(7)
+                    page(params[:category_page]).per(7)
     end
+
+    @transactions = Transaction.all_by_person(@person_id).
+                    where(created_at: 1.month.ago..Date.today+1.day)
+
+    case true
+      when params[:only_imporant].eql?("true")
+        @transactions = @transactions.
+                        where("is_important = true")
+      
+      when params[:only_with_description].eql?("true")
+        @transactions = @transactions.
+                        where.not(description: [nil, ""])
+
+      when date_params.present?
+        date_p = date_params
+        (@fStartDate, @fEndDate) = date_p[:created_at]
+        (startDate, endDate) = date_p[:created_at]
+        @categories = @categories.where(created_at: startDate.to_date..endDate.to_date+1.day)
+        @transactions = @transactions.where(created_at: startDate.to_date..endDate.to_date+1.day)
+
+    end
+    
+    @transactions = @transactions.page(params[:page]).per(30)
   end
 
   def change_person
@@ -26,6 +51,10 @@ class CabinetController < ApplicationController
   end
 
   private
+
+  def date_params
+    params.permit(created_at: [])
+  end
 
   def user_params
     params.permit(:current_person)

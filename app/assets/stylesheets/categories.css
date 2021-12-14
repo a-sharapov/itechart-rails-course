@@ -116,11 +116,13 @@ a.category-creator:hover {
   position: absolute;
   left: 15px;
   bottom: 50px;
-  font-size: 70px;
+  font-size: 50px;
   line-height: 70px;
   width: calc(100% - 30px);
   text-align: right;
-  color: var(--current-color)
+  color: var(--current-color);
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .category-item[data-direction="spending"] .category-balance:before {
@@ -151,12 +153,15 @@ a.category-creator:hover {
 article.cabinet-main > section.category-view {
   position: relative;
   float: left;
-  padding: 20px 50px;
-  margin: 0 50px 20px 0;
+  padding: 50px 20px;
+  margin: 0 30px 20px 0;
   background: none;
-  border: 1px dotted #eee;
+  border: 1px solid #eee;
   border-radius: 10px;
   z-index: 3;
+  border-top: 5px solid var(--current-color);
+  border-bottom: 5px solid var(--current-color);
+  box-shadow: 0 2px 12px #00000010;
 }
 
 .category-view h1 {
@@ -201,8 +206,8 @@ article.cabinet-main > section.category-view {
 .category-view .category-balance {
   display: block;
   position: relative;
-  font-size: 70px;
-  line-height: 70px;
+  font-size: 50px;
+  line-height: 50px;
   margin: 20px auto;
   text-align: center;
   color: var(--current-color);
@@ -226,4 +231,20 @@ article.cabinet-main > section.category-view {
 
 .category-view:hover .controls {
   opacity: 1;
+}
+
+article.cabinet-main > section.category-main-chart-wrapper {
+  display: block;
+  margin: 50px auto;
+  width: fit-content;
+}
+
+.category-chart-wrapper {
+  display: inline-block;
+  vertical-align: top;
+  margin: 0 30px;
+}
+
+.category-chart-wrapper canvas {
+  
 }

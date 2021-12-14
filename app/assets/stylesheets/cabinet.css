@@ -213,7 +213,7 @@ article.cabinet-main {
 
 article.cabinet-main > section {
   position: relative;
-  margin: 0 0 50px;
+  padding: 0 0 30px;
   text-align: center;
 }
 

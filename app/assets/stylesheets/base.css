@@ -244,6 +244,7 @@ input[type=password],
 input[type=search],
 input[type=tel],
 input[type=text],
+input[type="date"],
 select:not([multiple]),
 textarea {
   padding: 0 10px;
@@ -259,6 +260,7 @@ input[type=password],
 input[type=search],
 input[type=tel],
 input[type=text],
+input[type="date"],
 select:not([multiple]) {
   height: 40px
 }
@@ -398,6 +400,37 @@ input[type=submit].dedicated {
   text-shadow: 0 1px 0 rgba(0,0,0,.4);
   border-bottom-color: #2d702f;
   border-top-color: #76f07a;
+}
+
+input[type="date"] {
+  position: relative;
+  width: auto;
+  overflow: hidden;
+  width: 120px;
+  padding: 0 38px 0 10px;
+  border: 1px solid #aaa;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator { 
+  display: block;
+  position: absolute;
+  right: 0;
+  height: 30px;
+  width: 30px;
+  background: url(/i/date.svg) no-repeat center center;
+  background-size: 20px 20px;
+  opacity: .5;
+  transition: all .2s linear;
+}
+
+input[type="date"]:hover::-webkit-calendar-picker-indicator {
+  opacity: 1;
+}
+
+input[type="date"]::-webkit-datetime-edit-fields-wrapper {
+  width: auto;
+  font-size: 12px;
+  font-family: inherit;  
 }
 
 main#app {

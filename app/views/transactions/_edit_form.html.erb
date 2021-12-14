@@ -1,0 +1,36 @@
+<%= form_with(model: @transaction, url: transactions_path, class: "transaction-edit-form") do |f| %>
+  <% if @transaction.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@transaction.errors.count, "error") %> prohibited this transaction from being saved:</h2>
+      <ul>
+      <% @transaction.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <%= f.text_field :id, type: "hidden" %>
+  <%= f.hidden_field :person_id, value: @transaction.person_id %>
+  <%= f.hidden_field :direction %>
+  <div class="field">
+    <%= f.label :amount %><br />
+    <%= f.number_field :amount, min: 0.01, step: 0.01 %>
+  </div>
+  <div class="field">
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_area :description, class: "expanded-by-editor-mini" %>
+  </div>
+  <div class="field">
+    <%= f.check_box :is_important, value: true %>&nbsp;<%= f.label :is_important? %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+<%provide(:inner_includes, '<link href="https://cdn.jsdelivr.net/npm/froala-editor@latest/css/froala_editor.pkgd.min.css" rel="stylesheet" type="text/css" />'.to_s.html_safe)%>
+
+

@@ -9,6 +9,24 @@ class CategoriesController < ApplicationController
 
   
   def show
+    @transactions = Transaction.all_by_person(current_user.current_person).all_by_category(@category.id)
+    (@fStartDate, @fEndDate) = [Date.today - 1.month, Date.today]
+
+    case true
+      when params[:only_imporant].eql?("true")
+      @transactions = @transactions.
+                      where("is_important = true")
+
+      when params[:only_with_description].eql?("true")
+      @transactions = @transactions.
+                      where.not(description: [nil, ""])
+                      
+      when date_params.present?
+        date_p = date_params
+        (@fStartDate, @fEndDate) = date_p[:created_at]
+        (startDate, endDate) = date_p[:created_at]
+        @transactions = @transactions.where(created_at: startDate.to_date..endDate.to_date+1.day)
+    end
   end
 
   def new
@@ -47,6 +65,11 @@ class CategoriesController < ApplicationController
   end
 
   private
+
+  def date_params
+    params.permit(created_at: [])
+  end
+
   def set_category
     @category = Category.find(params[:category_id])
   end

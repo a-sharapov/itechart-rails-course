@@ -1,6 +1,6 @@
 class Category < ApplicationRecord
   has_many :person_categories, dependent: :destroy
-  has_many :persons, through: :person_categories 
+  has_many :persons, through: :person_categories
   
   validates :title, presence: true, length: { minimum: 1, maximum: 12 }
   validates :description, presence: false, length: { maximum: 60 }

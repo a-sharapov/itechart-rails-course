@@ -3,6 +3,10 @@ module ApplicationHelper
     'selected="selected"' if user_id.equal? person_id
   end
 
+  def checked(condition)
+    'selected="selected"' if condition
+  end
+
   def generate_random_color
     return "#%06x" % (rand * 0xffffff)
   end
@@ -11,4 +15,9 @@ module ApplicationHelper
     return "Income" if direction
     "Spending"
   end
+
+  def summ_transactions(transactions)
+    format("%.2f", transactions.sum(&:amount))
+  end
+    
 end

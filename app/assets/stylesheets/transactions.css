@@ -1,0 +1,215 @@
+article.cabinet-main > section#transactions {
+  padding-bottom: 50px;
+}
+
+article.cabinet-main > section.category-transactions .data-wrapper,
+article.cabinet-main > section#transactions .data-wrapper {
+  text-align: center;
+}
+
+article.cabinet-main > section#transactions a.flat-button {
+  display: inline-block;
+  line-height: 34px;
+  height: 34px;
+  text-decoration: none;
+  padding: 0 10px;
+  margin: 5px;
+}
+
+article.cabinet-main > section#transactions a.flat-button:before {
+  content: "";
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0 5px 0 0;
+  width: 20px;
+  height: 20px;
+  background: url(/i/direction.svg) no-repeat center center;
+  background-size: 80%;
+  filter: grayscale(1) invert(1) brightness(1.1) drop-shadow(0 1px 0 #333);
+  transform: scaleX(-1);
+}
+
+article.cabinet-main > section#transactions a.flat-button:first-child:before {
+  margin-top: -5px;
+  transform: scaleY(-1);
+}
+
+.transaction-item {
+  position: relative;
+  display: inline-block;
+  box-sizing: border-box;
+  vertical-align: top;
+  width: calc(100%/3 - 20px);
+  height: 100px;
+  clear: both;
+  margin: 10px;
+  padding: 15px 10px 30px;
+  background: #fff;
+  border-left: 3px solid var(--current-color);
+  border-radius: 5px;
+  box-shadow: 0 2px 10px #00000020;
+  text-align: left;
+  overflow: hidden;
+}
+
+.transaction-item[data-direction="spending"]:after, 
+.transaction-item[data-direction="income"]:after {
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin: 0;
+  width: 80px;
+  height: 80px;
+  background: url(/i/direction.svg) no-repeat center center;
+  background-size: contain;
+  filter: grayscale(1);
+  transform: scaleX(-1);
+  opacity: .05;
+  z-index: 0;
+}
+
+.transaction-item[data-direction="income"]:after {
+  transform: scaleY(-1);
+}
+
+.transaction-item .transaction-category {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  padding: 0 15px 0 10px;
+  font-size: 11px;
+  background: var(--current-color);
+  color: #fff;
+  text-shadow: 0 1px 0 #00000050;
+  border-radius: 0 10px 0 0;
+}
+
+.transaction-item .transaction-amount {
+  font-size: 30px;
+}
+
+.transaction-item[data-direction="spending"] .transaction-amount:before {
+  content: "-";
+}
+.transaction-item .transaction-description {
+  position: absolute;
+  display: block;
+  box-sizing: border-box;
+  font-size: 12px;
+  line-height: 14px;
+  color: #555;
+  margin: 0;
+  height: 0;
+  width: 100%;
+  padding: 0 80px 0 20px;
+  opacity: 0;
+  overflow: hidden;
+  z-index: 2;
+  transition: all .2s linear;
+}
+
+.transaction-item:hover .transaction-description:not(:empty) {
+  overflow: visible;
+  height: auto;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  padding: 10px 80px 10px 20px;
+  background: #ffffff90;
+  backdrop-filter: blur(5px);
+  opacity: 1;
+}
+
+.transaction-item .transaction-title {
+  display: block;
+  font-weight: bold;
+  margin: 3px 0 0;
+  font-size: 20px;
+}
+
+.transaction-item[data-important="true"] .transaction-title:before {
+  content: "";
+  display: inline-block;
+  vertical-align: bottom;
+  width: 20px;
+  height: 20px;
+  margin: 0 5px 0 0;
+  background: url(/i/alert.svg) no-repeat center center;
+  background-size: contain;
+}
+
+.transaction-item .controls {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  opacity: 0;
+  transition: all .2s linear;
+}
+
+.transaction-item:hover .controls {
+  opacity: 1;
+  z-index: 10;
+}
+
+.transaction-created {
+  position: absolute;
+  right: 10px;
+  bottom: 5px;
+  font-size: 10px;
+  line-height: 16px;
+  font-weight: bold;
+  color: #777;
+}
+
+.view-modifier-wrapper {
+  display: block;
+  margin: 20px auto;
+  white-space: nowrap;
+  font-size: 0;
+  text-align: left;
+}
+
+a.view-modifier {
+  display: inline-block;
+  text-decoration: none;
+  box-sizing: border-box;
+  padding: 0 15px;
+  line-height: 40px;
+  height: 40px;
+  background: #fff;
+  font-size: 12px;
+  font-weight: bold;
+  color: #333;
+  border: 1px solid #aaa;
+  text-shadow: 0 1px 0 #fff;
+}
+
+a.view-modifier:hover {
+  background: linear-gradient(to bottom, #eee, #fff);
+}
+
+a.view-modifier+a.view-modifier {
+  border-left: none;
+  border-right: none;
+}
+
+a.view-modifier:first-of-type {
+  border-radius: 2px 0 0 2px;
+  margin-left: 10px;
+}
+
+a.view-modifier:last-of-type {
+  border-radius: 0 2px 2px 0;
+  border: 1px solid #aaa !important;
+}
+
+form.date-picking {
+  float: right;
+  clear: right;
+  display: block;
+  width: fit-content;
+  font-size: 14px;
+}

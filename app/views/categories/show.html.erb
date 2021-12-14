@@ -5,16 +5,22 @@
       <%= link_to 'Edit', edit_person_categories_path({"person_id": current_user.current_person_friendly, "category_id": @category}), class: "mini-button icon-edit", title: "Edit" %>&nbsp;
       <%= link_to 'Delete', person_categories_path({"person_id": current_user.current_person_friendly, "category_id": @category}), method: :delete, data: { confirm: 'Are you sure?' }, class: "mini-button icon-delete", title: "Delete" %>
     </span>
-    <%= "<h1>#{@category.title}</h1>".html_safe %>
+    <%= "<h1 id=\"category-title\" data-color=\"#{@category.color}\">#{@category.title}</h1>".html_safe %>
     <p class="category-direction"><%= direction_transcriptor(@category.direction) %></>
     <p class="category-description"><%= sanitize @category.description %></p>
-    <p class="category-balance">N/A</p>
+    <p class="category-balance"><%= summ_transactions(@transactions) %></p>
     <p class="category-created">Created <%= @category.created_at.strftime('%e.%m.%y in %H:%M') %></p>
   </section>
   <section class="category-transactions">
     <h3>Transactions</h3>
-    <div class="data-wrapper"></div>
+    <%= render :partial => "shared/view_modifier", :locals => { path: person_categories_path({"person_id": current_user.current_person_friendly, "category_id": @category}), 
+                                                                all_path: person_categories_path({"person_id": current_user.current_person_friendly, "category_id": @category, anchor: :transactions}),
+                                                                desc_path: person_categories_path({"person_id": current_user.current_person_friendly, "category_id": @category, "only_imporant": true, anchor: :transactions}),
+                                                                imp_path: person_categories_path({"person_id": current_user.current_person_friendly, "category_id": @category, "only_with_description": true, anchor: :transactions})
+                                                              } %>
+    <div class="data-wrapper"><%= render @transactions %></div>
   </section>
+  <%= render :partial => "shared/category_chart" %>
 </article>
 <%= render :partial => "shared/cabinet_footer" %>
 <%provide(:current_page_title, "#{@category.title} - ")%>

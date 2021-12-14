@@ -1,0 +1,12 @@
+<div class="view-modifier-wrapper">
+<%= link_to 'All', all_path, class: "view-modifier" %>
+<%= link_to 'Only improtant', desc_path, class: "view-modifier" %>
+<%= link_to 'Only with description', imp_path, class: "view-modifier" %>
+<%= form_tag(path, method: :get, class: "date-picking") do -%>
+  <%= "<input type=\"hidden\" name=\"category_id\" value=\"#{@category.id}\" />".html_safe if @category.present? %>
+  <input type="date" id="start" name="created_at[]" value="<%= @fStartDate %>" max="<%= Date.today %>" required pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}" />
+   &ndash; 
+  <input type="date" id="end" name="created_at[]" value="<%= @fEndDate %>" required pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}" />
+  <button type="submit">Apply</button>
+<% end -%>
+</div>
