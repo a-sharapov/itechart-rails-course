@@ -4,7 +4,7 @@ class CreateCategories < ActiveRecord::Migration[6.1]
       t.string :title
       t.text :description
       t.string :color
-      t.boolean :direction, :default => true 
+      t.boolean :direction, default: true
 
       t.timestamps
     end

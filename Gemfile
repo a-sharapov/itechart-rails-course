@@ -32,9 +32,9 @@ gem 'babosa'
 gem 'devise', '~> 4.8'
 gem 'draper', '~> 4.0'
 gem 'friendly_id', '~> 5.4.0'
+gem 'kaminari', '~> 1.2'
 gem 'nested_scaffold'
 gem 'rubocop'
-gem 'kaminari', '~> 1.2'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -46,8 +46,8 @@ group :development do
   gem 'web-console', '>= 4.1.0'
   # Display performance information such as SQL time and flame graphs for each request in your browser.
   # Can be configured to work on production as well see: https://github.com/MiniProfiler/rack-mini-profiler/blob/master/README.md
-  gem 'rack-mini-profiler', '~> 2.0'
   gem 'bullet'
+  gem 'rack-mini-profiler', '~> 2.0'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

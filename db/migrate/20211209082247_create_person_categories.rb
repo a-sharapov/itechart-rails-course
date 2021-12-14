@@ -6,7 +6,7 @@ class CreatePersonCategories < ActiveRecord::Migration[6.1]
 
       t.timestamps
     end
-    
-    add_index :person_categories, [:person_id, :category_id], unique: true
+
+    add_index :person_categories, %i[person_id category_id], unique: true
   end
 end

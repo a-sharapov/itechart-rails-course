@@ -1,5 +1,5 @@
 module ApplicationHelper
-  def selected(first,second)
+  def selected(first, second)
     'selected="selected"' if first.equal? second
   end
 
@@ -8,21 +8,22 @@ module ApplicationHelper
   end
 
   def generate_random_color
-    return "#%06x" % (rand * 0xffffff)
+    format('#%06x', (rand * 0xffffff))
   end
 
   def direction_transcriptor(direction)
-    return "Income" if direction
-    "Spending"
+    return 'Income' if direction
+
+    'Spending'
   end
 
   def summ_transactions(transactions)
-    format("%.2f", transactions.sum(&:amount))
+    format('%.2f', transactions.sum(&:amount))
   end
 
-  def return_setted(first,second)
+  def return_setted(first, second)
     return first if first.present?
+
     second
   end
-    
 end

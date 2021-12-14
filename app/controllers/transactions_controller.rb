@@ -5,8 +5,7 @@ class TransactionsController < ApplicationController
   before_action :set_categories, only: %i[new create edit update]
   before_action :set_transaction, only: %i[show edit destroy]
 
-  def show
-  end
+  def show; end
 
   def new
     @transaction = Transaction.new
@@ -15,7 +14,8 @@ class TransactionsController < ApplicationController
   def create
     @transaction = Transaction.new(transaction_params)
     if @transaction.save
-      redirect_to user_root_path(anchor: "transaction-#{@transaction.id}"), notice: 'Transaction was successfully created.'
+      redirect_to user_root_path(anchor: "transaction-#{@transaction.id}"),
+                  notice: 'Transaction was successfully created.'
     else
       render action: 'new', locals: transaction_params
     end
@@ -23,13 +23,14 @@ class TransactionsController < ApplicationController
 
   def edit
     @person
-    @categories = Category.all_by_person(@person).where("direction = ?", @transaction.direction)
+    @categories = Category.all_by_person(@person).where('direction = ?', @transaction.direction)
   end
 
   def update
     @transaction = Transaction.find(transaction_update_params[:id])
     if @transaction.update(transaction_update_params)
-      redirect_to user_root_path(anchor: "transaction-#{@transaction.id}"), notice: 'Transaction was successfully updated.'
+      redirect_to user_root_path(anchor: "transaction-#{@transaction.id}"),
+                  notice: 'Transaction was successfully updated.'
     else
       render action: 'edit'
     end
@@ -39,7 +40,7 @@ class TransactionsController < ApplicationController
     if @transaction.destroy
       redirect_to user_root_path, notice: 'Transaction was successfully removed.'
     else
-      redirect_to user_root_path, alert: "Something goes wrong"
+      redirect_to user_root_path, alert: 'Something goes wrong'
     end
   end
 
@@ -50,7 +51,8 @@ class TransactionsController < ApplicationController
   end
 
   def transaction_update_params
-    params.require(:transaction).permit(:id, :person_id, :category_id, :title, :amount, :description, :direction, :is_important)
+    params.require(:transaction).permit(:id, :person_id, :category_id, :title, :amount, :description, :direction,
+                                        :is_important)
   end
 
   def set_person
@@ -62,6 +64,6 @@ class TransactionsController < ApplicationController
   end
 
   def set_categories
-    @categories = Category.all_by_person(@person).where("direction = ?", params[:direction])
+    @categories = Category.all_by_person(@person).where('direction = ?', params[:direction])
   end
 end

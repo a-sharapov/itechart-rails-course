@@ -33,11 +33,11 @@ class PeopleController < ApplicationController
   end
 
   def destroy
-    unless [current_user.current_person, current_user.default_person].include? @person.id
+    if [current_user.current_person, current_user.default_person].include? @person.id
+      redirect_to people_path, alert: "You can't destroy yours first or active alter ego"
+    else
       @person.destroy
       redirect_to people_path, notice: 'Person was successfully removed.'
-    else
-      redirect_to people_path, alert: "You can't destroy yours first or active alter ego"
     end
   end
 

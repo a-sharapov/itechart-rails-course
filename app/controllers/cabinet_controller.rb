@@ -7,33 +7,34 @@ class CabinetController < ApplicationController
   def index
     @user = current_user
     @people = @user.people.all
-    (@fStartDate, @fEndDate) = [Date.today - 1.month, Date.today]
+    @fStartDate = Date.today - 1.month
+    @fEndDate = Date.today
 
-    if @user.default_person.equal? @user.current_person
-      @categories = Category.all_by_current_user(@user.id)
-    else
-      @categories = Category.all_by_person(@person_id)
-    end
+    @categories = if @user.default_person.equal? @user.current_person
+                    Category.all_by_current_user(@user.id)
+                  else
+                    Category.all_by_person(@person_id)
+                  end
 
-    @transactions = Transaction.all_by_person(@person_id).
-                    where(created_at: 1.month.ago..Date.today+1.day)
+    @transactions = Transaction.all_by_person(@person_id)
+                               .where(created_at: 1.month.ago..Date.today + 1.day)
 
     case true
-      when params[:only_imporant].eql?("true")
-        @transactions = @transactions.
-                        where("is_important = true")
-      
-      when params[:only_with_description].eql?("true")
-        @transactions = @transactions.
-                        where.not(description: [nil, ""])
+    when params[:only_imporant].eql?('true')
+      @transactions = @transactions
+                      .where('is_important = true')
 
-      when date_params.present?
-        date_p = date_params
-        (@fStartDate, @fEndDate) = date_p[:created_at]
-        (startDate, endDate) = date_p[:created_at]
-        # Фильтрация категорий, по времени создания = забавные графики
-        #@categories = @categories.where(created_at: startDate.to_date..endDate.to_date+1.day)
-        @transactions = @transactions.where(created_at: startDate.to_date..endDate.to_date+1.day)
+    when params[:only_with_description].eql?('true')
+      @transactions = @transactions
+                      .where.not(description: [nil, ''])
+
+    when date_params.present?
+      date_p = date_params
+      (@fStartDate, @fEndDate) = date_p[:created_at]
+      (startDate, endDate) = date_p[:created_at]
+      # Фильтрация категорий, по времени создания = забавные графики
+      # @categories = @categories.where(created_at: startDate.to_date..endDate.to_date+1.day)
+      @transactions = @transactions.where(created_at: startDate.to_date..endDate.to_date + 1.day)
 
     end
   end

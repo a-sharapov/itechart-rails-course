@@ -7,25 +7,25 @@ class CategoriesController < ApplicationController
   before_action :set_category, only: %i[show edit destroy]
   before_action :set_category_to_update, only: %i[update]
 
-  
   def show
     @transactions = Transaction.all_by_person(current_user.current_person).all_by_category(@category.id)
-    (@fStartDate, @fEndDate) = [Date.today - 1.month, Date.today]
+    @fStartDate = Date.today - 1.month
+    @fEndDate = Date.today
 
     case true
-      when params[:only_imporant].eql?("true")
-      @transactions = @transactions.
-                      where("is_important = true")
+    when params[:only_imporant].eql?('true')
+      @transactions = @transactions
+                      .where('is_important = true')
 
-      when params[:only_with_description].eql?("true")
-      @transactions = @transactions.
-                      where.not(description: [nil, ""])
-                      
-      when date_params.present?
-        date_p = date_params
-        (@fStartDate, @fEndDate) = date_p[:created_at]
-        (startDate, endDate) = date_p[:created_at]
-        @transactions = @transactions.where(created_at: startDate.to_date..endDate.to_date+1.day)
+    when params[:only_with_description].eql?('true')
+      @transactions = @transactions
+                      .where.not(description: [nil, ''])
+
+    when date_params.present?
+      date_p = date_params
+      (@fStartDate, @fEndDate) = date_p[:created_at]
+      (startDate, endDate) = date_p[:created_at]
+      @transactions = @transactions.where(created_at: startDate.to_date..endDate.to_date + 1.day)
     end
   end
 
@@ -43,8 +43,7 @@ class CategoriesController < ApplicationController
     end
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     @person
@@ -79,10 +78,10 @@ class CategoriesController < ApplicationController
   end
 
   def set_categories
-    @categories = Category.
-                  includes(:persons, :person_categories).
-                  references(:person_categories).
-                  where('user_id = ?', current_user.id)
+    @categories = Category
+                  .includes(:persons, :person_categories)
+                  .references(:person_categories)
+                  .where('user_id = ?', current_user.id)
   end
 
   def set_person
