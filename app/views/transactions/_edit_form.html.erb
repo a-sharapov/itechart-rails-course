@@ -21,6 +21,10 @@
     <%= f.text_field :title %>
   </div>
   <div class="field">
+    <label>Assigned to category:</label><br />
+    <%= f.collection_select(:category_id, @categories, :id, :title, {multiple: false, :selected => @transaction.category_id}, { include_blank: true }) %>
+  </div>
+  <div class="field">
     <%= f.label :description %><br />
     <%= f.text_area :description, class: "expanded-by-editor-mini" %>
   </div>

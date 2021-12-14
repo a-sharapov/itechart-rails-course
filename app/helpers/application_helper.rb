@@ -1,6 +1,6 @@
 module ApplicationHelper
-  def selected(user_id, person_id)
-    'selected="selected"' if user_id.equal? person_id
+  def selected(first,second)
+    'selected="selected"' if first.equal? second
   end
 
   def checked(condition)
@@ -18,6 +18,11 @@ module ApplicationHelper
 
   def summ_transactions(transactions)
     format("%.2f", transactions.sum(&:amount))
+  end
+
+  def return_setted(first,second)
+    return first if first.present?
+    second
   end
     
 end

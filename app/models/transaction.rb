@@ -3,7 +3,8 @@ class Transaction < ApplicationRecord
   has_one :category
   
   validates :amount, presence: true, length: { minimum: 1 }
-  validates :description, presence: true, length: { maximum: 120 }
+  validates :description, presence: false, length: { maximum: 120 }
+  validates :title, presence: false, format: { without: /\s+\s/ }, length: { maximum: 50 }
 
   scope :all_important, ->() do 
     transactions = where('is_important = true')

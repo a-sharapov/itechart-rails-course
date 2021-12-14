@@ -4,34 +4,7 @@ article.cabinet-main > section#transactions {
 
 article.cabinet-main > section.category-transactions .data-wrapper,
 article.cabinet-main > section#transactions .data-wrapper {
-  text-align: center;
-}
-
-article.cabinet-main > section#transactions a.flat-button {
-  display: inline-block;
-  line-height: 34px;
-  height: 34px;
-  text-decoration: none;
-  padding: 0 10px;
-  margin: 5px;
-}
-
-article.cabinet-main > section#transactions a.flat-button:before {
-  content: "";
-  display: inline-block;
-  vertical-align: middle;
-  margin: 0 5px 0 0;
-  width: 20px;
-  height: 20px;
-  background: url(/i/direction.svg) no-repeat center center;
-  background-size: 80%;
-  filter: grayscale(1) invert(1) brightness(1.1) drop-shadow(0 1px 0 #333);
-  transform: scaleX(-1);
-}
-
-article.cabinet-main > section#transactions a.flat-button:first-child:before {
-  margin-top: -5px;
-  transform: scaleY(-1);
+  text-align: left;
 }
 
 .transaction-item {
@@ -39,9 +12,8 @@ article.cabinet-main > section#transactions a.flat-button:first-child:before {
   display: inline-block;
   box-sizing: border-box;
   vertical-align: top;
-  width: calc(100%/3 - 20px);
+  width: calc(100% / 3 - 20px);
   height: 100px;
-  clear: both;
   margin: 10px;
   padding: 15px 10px 30px;
   background: #fff;
@@ -163,10 +135,16 @@ article.cabinet-main > section#transactions a.flat-button:first-child:before {
   font-weight: bold;
   color: #777;
 }
+article.cabinet-main > section.category-transactions {
+  display: inline-block;
+  vertical-align: top;
+  width: calc(100% - 260px);
+}
 
 .view-modifier-wrapper {
   display: block;
-  margin: 20px auto;
+  margin: 30px auto;
+  padding: 0;
   white-space: nowrap;
   font-size: 0;
   text-align: left;
@@ -180,6 +158,7 @@ a.view-modifier {
   line-height: 40px;
   height: 40px;
   background: #fff;
+  background: linear-gradient(to top, #eee, #fff);
   font-size: 12px;
   font-weight: bold;
   color: #333;
@@ -207,9 +186,103 @@ a.view-modifier:last-of-type {
 }
 
 form.date-picking {
-  float: right;
-  clear: right;
+  width: 100%;
+  clear: both;
   display: block;
-  width: fit-content;
+  font-size: 12px;
+}
+
+form.date-picking label {
+  margin-bottom: 0;
+  margin-right: 5px;
+  line-height: 40px;
+  height: 40px;
+}
+
+form.date-picking button,
+form.date-picking .button {
+  float: right;
+  margin-left: 5px;
+  border: 2px solid #ccc;
+}
+
+form.date-picking button.ruby-button {
+  border: 2px solid var(--ruby);
+}
+
+canvas.chart-node {
+  margin: 20px 0;
+}
+
+.transaction-creator {
+  position: relative;
+  display: inline-block;
+  box-sizing: border-box;
+  font-weight: bold;
+  background-size: 40px;
+  padding: 0;
+  border-radius: 5px;
+  text-decoration: none;
   font-size: 14px;
+  text-align: center;
+  width: calc(100% / 3 - 20px);
+  min-width: 200px;
+  margin: 10px;
+  height: 100px;
+  border: 2px dashed #777;
+  opacity: .2;
+  transition: .2s linear;
+}
+
+.transaction-creator:hover {
+  background-color: #efefef;
+  box-shadow: 0 10px 25px #00000020;
+  border-color: #efefef;
+  transform: scale(102%);
+  opacity: 1;
+  z-index: 3;
+}
+
+.transaction-creator a {
+  box-sizing: border-box;
+  display: block;
+  height: 48px;
+  color: #777;
+  line-height: 50px;
+  padding: 0 20px;
+  text-align: center;
+  text-decoration: none;
+}
+.transaction-creator a:after {
+  content: "";
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0 0 0 5px;
+  width: 20px;
+  height: 20px;
+  background: url(/i/direction.svg) no-repeat center center;
+  background-size: 80%;
+  filter: grayscale(1) brightness(1.1);
+  transform: scaleX(-1);
+}
+
+.transaction-creator a.new-income:after {
+  transform: scaleY(-1);
+}
+
+.transaction-creator:hover a {
+  color: #aaa;
+}
+
+.transaction-creator a span {
+  color: #f00;
+}
+
+.transaction-creator a+a span {
+  color: #41cb19;
+}
+
+.transaction-creator a:hover {
+  color: #333;
+  background: #fff;
 }

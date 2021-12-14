@@ -10,11 +10,9 @@ class CabinetController < ApplicationController
     (@fStartDate, @fEndDate) = [Date.today - 1.month, Date.today]
 
     if @user.default_person.equal? @user.current_person
-      @categories = Category.all_by_current_user(@user.id).
-                    page(params[:category_page]).per(7)
+      @categories = Category.all_by_current_user(@user.id)
     else
-      @categories = Category.all_by_person(@person_id).
-                    page(params[:category_page]).per(7)
+      @categories = Category.all_by_person(@person_id)
     end
 
     @transactions = Transaction.all_by_person(@person_id).
@@ -33,12 +31,11 @@ class CabinetController < ApplicationController
         date_p = date_params
         (@fStartDate, @fEndDate) = date_p[:created_at]
         (startDate, endDate) = date_p[:created_at]
-        @categories = @categories.where(created_at: startDate.to_date..endDate.to_date+1.day)
+        # Фильтрация категорий, по времени создания = забавные графики
+        #@categories = @categories.where(created_at: startDate.to_date..endDate.to_date+1.day)
         @transactions = @transactions.where(created_at: startDate.to_date..endDate.to_date+1.day)
 
     end
-    
-    @transactions = @transactions.page(params[:page]).per(30)
   end
 
   def change_person

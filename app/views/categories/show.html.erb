@@ -13,11 +13,7 @@
   </section>
   <section class="category-transactions">
     <h3>Transactions</h3>
-    <%= render :partial => "shared/view_modifier", :locals => { path: person_categories_path({"person_id": current_user.current_person_friendly, "category_id": @category}), 
-                                                                all_path: person_categories_path({"person_id": current_user.current_person_friendly, "category_id": @category, anchor: :transactions}),
-                                                                desc_path: person_categories_path({"person_id": current_user.current_person_friendly, "category_id": @category, "only_imporant": true, anchor: :transactions}),
-                                                                imp_path: person_categories_path({"person_id": current_user.current_person_friendly, "category_id": @category, "only_with_description": true, anchor: :transactions})
-                                                              } %>
+    <%= render :partial => "shared/view_modifier", :locals => { path: person_categories_path({"person_id": current_user.current_person_friendly, "category_id": @category}) } %>
     <div class="data-wrapper"><%= render @transactions %></div>
   </section>
   <%= render :partial => "shared/category_chart" %>

@@ -1,12 +1,10 @@
 <section id="transactions">
   <h2>Transactions</h2>
-  <p><%= link_to 'Declarate income transaction', new_transactions_path({person_id: current_user.current_person, direction: true}), class: "flat-button font-slab" %>
-  <%= link_to 'Declarate spending transaction', new_transactions_path({person_id: current_user.current_person, direction: false}), class: "flat-button font-slab" %></p>
-  <hr />
-  <%= render :partial => "shared/view_modifier", :locals => { path: cabinet_path, 
-                                                              all_path: cabinet_path({anchor: :transactions}),
-                                                              desc_path: cabinet_path({"only_with_description": true, anchor: :transactions}),
-                                                              imp_path: cabinet_path({"only_imporant": true, anchor: :transactions})
-                                                            } %>
-  <div class="data-wrapper"><%= render @transactions %><%= paginate @transactions %></div>
+  <%= render :partial => "shared/view_modifier", :locals => { path: cabinet_path } %>
+  <div class="data-wrapper">
+    <span class="transaction-creator font-slab">
+      <%= link_to 'Declarate income transaction', new_transactions_path({person_id: current_user.current_person, direction: true}), class: "new-income" %>
+      <%= link_to 'Declarate spending transaction', new_transactions_path({person_id: current_user.current_person, direction: false}), class: "new-spending" %>
+    </span><%= render @transactions %>
+  </div>
 </section>
