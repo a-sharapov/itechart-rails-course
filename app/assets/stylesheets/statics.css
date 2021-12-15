@@ -3,8 +3,8 @@ header {
   top: 0;
   left: 0;
   right: 0;
-  background: #ffffff80;
-  backdrop-filter: blur(10px);
+  background: #ffffff90;
+  backdrop-filter: blur(50px);
   height: 50px;
   box-shadow: 0 3px 12px #00000010;
   text-align: left;
@@ -287,6 +287,12 @@ section#compatibility {
   z-index: 5;
 }
 
+ul.compatibility-list {
+  display: block;
+  margin: 30px 0 0;
+  padding: 0;
+}
+
 ul.compatibility-list li {
   display: inline-block;
   vertical-align: top;
@@ -295,11 +301,6 @@ ul.compatibility-list li {
   line-height: 20px;
   opacity: .7;
   transition: all .2s linear;
-}
-
-ul.compatibility-list {
-  display: block;
-  margin: 30px 0 0;
 }
 
 ul.compatibility-list li:hover {

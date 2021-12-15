@@ -211,6 +211,13 @@ document.addEventListener("turbolinks:load", function() {
       makeChartsForCategory()
       break
   }
-    
+  
+  const mobileMenuHandler = document.querySelector("[data-role=\"mobile-menu-handler\"]")
+  if (mobileMenuHandler !== null) {
+    mobileMenuHandler.addEventListener("click", (e) => {
+      e.target.classList.toggle("active")
+      document.querySelector("nav[data-role=\"site-nav-menu\"]").classList.toggle("active")
+    })
+  }
   
 })

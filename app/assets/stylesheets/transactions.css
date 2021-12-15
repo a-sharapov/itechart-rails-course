@@ -84,14 +84,16 @@ article.cabinet-main > section#transactions .data-wrapper {
 
 .transaction-item:hover .transaction-description:not(:empty) {
   overflow: visible;
+  font-size: 15px;
+  color: #333;
   height: auto;
   left: 0;
   right: 0;
   top: 0;
   bottom: 0;
   padding: 10px 80px 10px 20px;
-  background: #ffffff90;
-  backdrop-filter: blur(5px);
+  background: #ffffff95;
+  backdrop-filter: blur(25px);
   opacity: 1;
 }
 

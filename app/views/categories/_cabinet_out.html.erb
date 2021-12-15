@@ -1,5 +1,5 @@
-<%= render :partial => "shared/cabinet_chart" %>
 <section id="categories">
   <h2>Categories</h2>
   <div class="data-wrapper"><%= link_to 'Add category', new_person_categories_path(current_user.current_person_friendly), class: "category-creator font-slab" %><%= render @categories %></div>
 </section>
+<%= render :partial => "shared/cabinet_chart" %>

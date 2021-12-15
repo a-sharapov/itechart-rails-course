@@ -559,3 +559,7 @@ nav[role="navigation"] .current {
 .fr-box.fr-basic .fr-wrapper {
   border-bottom: 1px solid #aaa !important;
 }
+
+div[data-role="mobile-menu-handler"] {
+  display: none;
+}

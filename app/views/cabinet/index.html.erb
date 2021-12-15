@@ -1,7 +1,7 @@
 <%= render :partial => "shared/cabinet_header" %>
 <article class="cabinet-main">
-  <%= render :partial => "transactions/cabinet_out" %>
   <%= render :partial => "categories/cabinet_out" %>
+  <%= render :partial => "transactions/cabinet_out" %>
 </article>
 <%= render :partial => "shared/cabinet_footer" %>
 <% provide(:current_page_title, "#{current_user.user_nickname}`s (#{current_user.current_person_name}) cabinet - ") %>

@@ -1,0 +1,250 @@
+@media screen and (max-width: 1100px) {
+  .wallet-profile {
+    font-size: 0;
+    width: 45px;
+  }
+  article.cabinet-main > section#categories .data-wrapper,
+  article.cabinet-main > section.category-transactions .data-wrapper, 
+  article.cabinet-main > section#transactions .data-wrapper {
+    text-align: center;
+  }
+
+  .transaction-creator a {
+    font-size: 16px;
+    line-height: 18px;
+    padding: 5px;
+  }
+
+  .category-item .category-balance {
+    font-size: 40px;
+  }
+
+  .view-modifier-wrapper {
+    height: auto;
+    margin: 10px 0;
+    white-space: normal;
+    text-align: center;
+  }
+
+  form.date-picking button, form.date-picking .button {
+    float: none;
+    display: inline-block;
+    width: fit-content;
+    margin: 5px;
+  }
+
+  .view-modifier-wrapper label {
+    margin: 0;
+    width: fit-content;
+  }
+
+  .transaction-creator, 
+  .transaction-item {
+    min-width: 180px;
+  }
+
+  header {
+    height: auto;
+  }
+
+  .user-profile-header a.flat-button {
+    padding: 0 10px !important;
+  }
+
+  a.emulate-close {
+    z-index: 100;
+  }
+
+  section#simply_about {
+    height: auto;
+    padding: 40px 40px 320px;
+  }
+
+  section#simply_about .phone-wrapper  {
+    position: absolute;
+    left: 50%;
+    top: auto;
+    margin: 0 -140px;
+    bottom: -270px;
+  }
+
+  section#splash {
+    height: 100vh;
+    background-size: auto 100%;
+  }
+
+  header nav[data-role="site-nav-menu"],
+  header nav[data-role="site-nav-menu"] span,
+  header nav[data-role="site-nav-menu"] a {
+    display: block;
+    box-sizing: border-box;
+    clear: both;
+    width: 100%;
+    padding: 0 10px;
+  }
+
+  header nav[data-role="site-nav-menu"] {
+    padding: 0;
+    display: none;
+  }
+
+  header nav[data-role="site-nav-menu"].active {
+    display: block;
+  }
+
+  header .user-profile-header {
+    display: block;
+    float: right;
+    text-align: right;
+  }
+  
+  div[data-role="mobile-menu-handler"] {
+    display: block;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    height: 30px;
+    width: 30px;
+    box-sizing: border-box;
+    border-top: 4px solid var(--ruby);
+    border-bottom: 4px solid var(--ruby);
+    z-index: 100;
+    transition: all .2s linear;
+  }
+
+  div[data-role="mobile-menu-handler"]:before,
+  div[data-role="mobile-menu-handler"]:after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 4px;
+    position: absolute;
+    top: 50%;
+    margin: -2px 0;
+    background: var(--ruby);
+    transition: all .2s linear;
+  }
+
+  div[data-role="mobile-menu-handler"].active {
+    background: var(--ruby-white);
+    border: 4px solid var(--ruby-white);
+    border-radius: 15px;
+    transform: scale(1.2);
+  }
+
+  div[data-role="mobile-menu-handler"].active:before {
+      transform: rotate(-45deg)
+  }
+
+  div[data-role="mobile-menu-handler"].active:after {
+      transform: rotate(45deg)
+  }
+}
+
+@media screen and (max-width: 768px) {
+  article.cabinet-main > section.category-view {
+    float: none;
+    display: block;
+    margin: 0 auto 50px;
+    clear: both;
+  }
+
+  article.cabinet-main > section.category-transactions {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .current-person-switcher-form select {
+    border-bottom: 1px dotted #ccc;
+  }
+
+  section#personalities-section {
+    margin-top: 70px;
+  }
+
+  header {
+    text-align: center;
+  }
+
+  header .user-profile-header.site {
+    box-sizing: border-box;
+    padding-left: 50px;
+    margin: 0 5px;
+    width: 100%;
+    text-align: right;
+  }
+
+  header .user-profile-header {
+    float: none;
+    white-space: normal;
+    line-height: 30px;
+    margin: 5px 0 10px;
+    text-align: center;
+  }
+
+  header+article.cabinet-main {
+    margin: 120px auto 0;
+  }
+
+  .user-profile-header a.flat-button.ruby-button {
+    float: none;
+    margin: 5px;
+  }
+
+  .category-chart-wrapper {
+    margin: 0;
+  }
+
+  section.page-form-wrapper {
+    border: none;
+    box-shadow: none;
+    margin-top: -30px;
+  }
+
+  section.page-form-wrapper.wide .row.emotional-dark, 
+  section.page-form-wrapper.wide .row {
+    width: 100%;
+    position: static;
+  }
+
+  section#personalities-section {
+    padding: 0 10px;
+    box-sizing: border-box;
+  }
+
+  .user-profile-header a.flat-button {
+    max-width: 100px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    vertical-align: middle;
+    margin: 5px;
+  }
+
+  .transaction-item .transaction-title {
+    font-size: 14px;
+  }
+
+  a.category-creator, .category-item,
+  .transaction-creator, .transaction-item {
+    min-width: 280px;
+  }
+
+  .transaction-creator a {
+    padding: 15px 10px;
+  }
+
+  .category-item .category-balance {
+    font-size: 55px;
+  }
+
+  article.cabinet-main > section.category-main-chart-wrapper {
+    margin: auto;
+  }
+
+  ul.compatibility-list li {
+    width: 100%;
+    margin: 10px 0;
+  }
+}
