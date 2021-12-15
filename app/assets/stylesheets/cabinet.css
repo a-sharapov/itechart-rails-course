@@ -123,10 +123,15 @@ a.personality-creator:hover {
 }
 
 .personalities-list .personality-item .name {
+  display: block;
   font-weight: bold;
   font-size: 20px;
   line-height: 30px;
   letter-spacing: 1px;
+  white-space: nowrap;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .personalities-list .personality-item .relation {
@@ -149,8 +154,15 @@ a.personality-creator:hover {
 }
 
 .personalities-list .personality-item .controls {
-  float: right;
-  margin: 4px -5px 0 0;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  opacity: 0;
+  transition: all .2s linear;
+}
+
+.personalities-list .personality-item:hover .controls {
+  opacity: 1;
 }
 
 .personalities-list .personality-item .description:empty, 

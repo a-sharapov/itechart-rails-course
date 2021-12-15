@@ -1,6 +1,6 @@
 class Transaction < ApplicationRecord
-  has_one :person
-  has_one :category
+  belongs_to :person, foreign_key: "person_id"
+  belongs_to :category, foreign_key: "category_id"
 
   validates :amount, presence: true, length: { minimum: 1 }
   validates :description, presence: false, length: { maximum: 120 }

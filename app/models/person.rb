@@ -1,8 +1,9 @@
 class Person < ApplicationRecord
   has_many :person_category, dependent: :destroy
   has_many :category, through: :person_category
-  validates :name, presence: true, length: { minimum: 2 }
+  has_many :person_transaction, class_name: "Transaction", dependent: :destroy
   belongs_to :user
+  validates :name, presence: true, length: { minimum: 2 }
 
   extend FriendlyId
   friendly_id :name, use: :slugged
