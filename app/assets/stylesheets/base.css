@@ -563,3 +563,8 @@ nav[role="navigation"] .current {
 div[data-role="mobile-menu-handler"] {
   display: none;
 }
+
+main#app *.hidden {
+  visibility: hidden;
+  display: none; 
+}

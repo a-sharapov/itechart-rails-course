@@ -77,7 +77,6 @@ document.addEventListener("turbolinks:load", function() {
     quickInsertEnabled: false
   })
 
-
   function makeChartsForCategory() {
     try {
       const line_chart_data = {
@@ -112,7 +111,7 @@ document.addEventListener("turbolinks:load", function() {
               label: document.querySelector("#category-title").innerText,
               data: line_chart_data.data,
               fill: false,
-              borderColor: document.querySelector("#category-title").getAttribute("data-color"),
+              borderColor: "transparent",
               backgroundColor: document.querySelector("#category-title").getAttribute("data-color"),
               tension: 0.1
             },
@@ -206,9 +205,15 @@ document.addEventListener("turbolinks:load", function() {
   switch (document.querySelector("body").getAttribute("data-page")) {
     case "cabinet index":
       makeChartsForCabinet()
+      if (document.querySelectorAll(".transaction-item").length > 0) {
+        document.querySelector(".category-main-chart-wrapper").classList.remove("hidden")
+      }
       break
     case "categories show":
       makeChartsForCategory()
+      if (document.querySelectorAll(".transaction-item").length > 0) {
+        document.querySelector(".inner-category-chart-wrapper").classList.remove("hidden")
+      }
       break
   }
   

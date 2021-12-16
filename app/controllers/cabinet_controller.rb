@@ -33,7 +33,7 @@ class CabinetController < ApplicationController
       (@fStartDate, @fEndDate) = date_p[:created_at]
       (startDate, endDate) = date_p[:created_at]
       # Фильтрация категорий, по времени создания = забавные графики
-      # @categories = @categories.where(created_at: startDate.to_date..endDate.to_date+1.day)
+      #@categories = @categories.where(created_at: startDate.to_date..endDate.to_date+1.day)
       @transactions = @transactions.where(created_at: startDate.to_date..endDate.to_date + 1.day)
 
     end
